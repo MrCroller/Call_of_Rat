@@ -30,13 +30,15 @@ public class player : MonoBehaviour
 
     private void Update()
     {
+
         _direction.x = Input.GetAxis("Horizontal");
         _direction.z = Input.GetAxis("Vertical");
 
-        if (Input.GetMouseButton(0))
-        {
-            Fare();
-        }
+        //if (Input.GetMouseButton(0))
+        //{
+        //    Fare();
+        //}
+        //bullet.transform.Translate(Time.deltaTime, 0, 0);
     }
 
     //Физика
@@ -53,6 +55,6 @@ public class player : MonoBehaviour
 
     private void Fare()
     {
-        Instantiate(bullet, bulletStartPosition.position, Quaternion.identity);
+        Instantiate(bullet, bulletStartPosition.position, Quaternion.identity);  
     }
 }
