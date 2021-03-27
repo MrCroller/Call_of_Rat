@@ -1,12 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class test : MonoBehaviour
 {
-    void Update()
+
+    private void OnTriggerEnter()
     {
-        var t = Quaternion.Euler(45, 45, 45);
-        transform.rotation = t;
+        print("Enter");
+    }
+
+    private void OnTriggerStay()
+    {
+        print("Stay");
+    }
+
+    private void OnTriggerExit()
+    {
+        print("Exit");
     }
 }
