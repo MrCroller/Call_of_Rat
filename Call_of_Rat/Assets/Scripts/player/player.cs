@@ -2,41 +2,27 @@ using UnityEngine;
 
 public class player : MonoBehaviour
 {
-    //public GameObject bullet;
-    //public Transform bulletStartPosition;
+    public GameObject bullet;
+    public Transform bulletStartPosition;
 
     //public GameObject enemy;
     //private readonly Rigidbody _rb;
 
-    [SerializeField] private GameObject trigger_nand;
+    [SerializeField] private GameObject _trigger_nand;
+
     [SerializeField] public Transform p_camera;
 
-    //Инициализация объектов
-    private void Awake()
-    {
+    [SerializeField] private Transform _Right_hand;
+    [SerializeField] private GameObject _censer;
 
-    }
-
-    private void Start()
-    {
-        //Enemy e = enemy.GetComponent<Enemy>();
-        //if (e != null)
-        //{
-        //    Debug.Log(e.hp_);
-        //}
-    }
+    public bool flag_take_censer = false;
+    private bool flag_fire = false;
 
     private void Update()
     {
-
         takeHand();
-
-
-        //if (Input.GetMouseButton(0))
-        //{
-        //    Fare();
-        //}
-        //bullet.transform.Translate(Time.deltaTime, 0, 0);
+        if (flag_take_censer) Censer_Active();
+        if (flag_fire && Input.GetMouseButtonDown(0)) Fare();
     }
 
     //Физика
@@ -52,22 +38,34 @@ public class player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            trigger_nand.SetActive(true);
+            _trigger_nand.SetActive(true);
             Debug.Log("enter_e");
 
             // Поворот тригера в сторону камеры
-            trigger_nand.transform.rotation = p_camera.rotation;
+            _trigger_nand.transform.rotation = p_camera.rotation;
         }
 
         if (Input.GetKeyUp(KeyCode.E))
         {
-            trigger_nand.SetActive(false);
+            _trigger_nand.SetActive(false);
         }
 
     }
 
+    /// <summary>
+    /// Метод активации оружия
+    /// </summary>
+    private void Censer_Active()
+    {
+        _Right_hand.Rotate(-120f, 0, 0, Space.Self);
+        _censer.SetActive(true);
+        flag_take_censer = false;
+        flag_fire = true;
+    }
+
     private void Fare()
     {
+        Debug.Log("holy_fire!");
         //Instantiate(bullet, bulletStartPosition.position, Quaternion.identity);
     }
 }
