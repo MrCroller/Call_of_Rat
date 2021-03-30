@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
@@ -173,5 +171,6 @@ public class rat_st : MonoBehaviour
         await Task.Delay(2400);
         text_mesh_listener2.text = null;
         await Task.Delay(3000);
+        Joke1();
     }
 }

@@ -39,8 +39,15 @@ public class player_controller : MonoBehaviour
     /// </summary>
     private void Sprint()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift)) _speed += sprint_value;
-        if (Input.GetKeyUp(KeyCode.LeftShift)) _speed -= sprint_value;
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            _speed += sprint_value;
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            _speed -= sprint_value;
+        }
     }
 
     /// <summary>

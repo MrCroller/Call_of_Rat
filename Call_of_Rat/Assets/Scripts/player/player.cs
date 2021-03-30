@@ -15,14 +15,23 @@ public class player : MonoBehaviour
     [SerializeField] private Transform _Right_hand;
     [SerializeField] private GameObject _censer;
 
+    public int key_count = 0;
+
     public bool flag_take_censer = false;
     private bool flag_fire = false;
 
     private void Update()
     {
         takeHand();
-        if (flag_take_censer) Censer_Active();
-        if (flag_fire && Input.GetMouseButtonDown(0)) Fare();
+        if (flag_take_censer)
+        {
+            Censer_Active();
+        }
+
+        if (flag_fire && Input.GetMouseButtonDown(0))
+        {
+            Fare();
+        }
     }
 
     //Физика

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 462157209}
   - component: {fileID: 462157212}
   - component: {fileID: 462157211}
-  - component: {fileID: 462157210}
   m_Layer: 0
   m_Name: capsule
   m_TagString: trigger_hand
@@ -82,20 +81,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &462157210
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 462157208}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.55
-  m_Height: 2.6188424
-  m_Direction: 1
-  m_Center: {x: 0.2800009, y: 0.06942041, z: 0.09999999}
 --- !u!1 &906566605
 GameObject:
   m_ObjectHideFlags: 0
@@ -1013,11 +998,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c534ed278e0dbf4a837741c08b91ac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bullet: {fileID: 0}
+  bulletStartPosition: {fileID: 0}
   _trigger_nand: {fileID: 0}
   p_camera: {fileID: 4901365664912391756}
   _Right_hand: {fileID: 0}
   _censer: {fileID: 0}
-  take_censer: 0
+  key_count: 0
+  flag_take_censer: 0
 --- !u!114 &535077503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1031,7 +1019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 3
-  player: {fileID: 4901365664912391755}
+  p_camera: {fileID: 0}
   sensivity: 2
   sprint_value: 7
   playerGO: {fileID: 4901365666157671904}

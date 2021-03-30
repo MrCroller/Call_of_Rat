@@ -10,6 +10,8 @@ public class door : MonoBehaviour
     [SerializeField] private Transform _door;
     private Vector3 _openPosition_sash;
     private Quaternion _openPosition_door;
+
+    // Флаг для открытия двери
     public bool button_flag = false;
 
     private void Start()

@@ -47,10 +47,10 @@ public class storyteller : MonoBehaviour
         text_mesh.text = "";
         text_mesh.text = "А ты неплох";
         await Task.Delay(3000);
-        text_mesh.text = "Для подопотной мыши";
+        text_mesh.text = "Для подопытной мыши";
         await Task.Delay(3000);
         text_mesh.text = "Значит так. У тебя тут 2 варианта. Пройти скрытно от всех этих культистов, либо раздобыть одно интересное оружие";
-        await Task.Delay(6000);
+        await Task.Delay(6400);
         text_mesh.text = "Какое спросишь? Они его хранят в дальней комнате. Это дальше по коридору, потом на право. Не заблудись";
         await Task.Delay(6000);
         text_mesh.text = "";
