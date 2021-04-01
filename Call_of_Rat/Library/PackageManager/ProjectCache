@@ -5,7 +5,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637525273586686885
+      ticks: 637528739312352470
     m_Hash: 64475967
   m_LockFileStatus:
     m_FilePath: "E:/\u041A\u0443\u0440\u0441/Unity/GBUnity1/Call_of_Rat/Packages/packages-lock.json"
@@ -13,7 +13,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637525294990560352
+      ticks: 637528739902139455
     m_Hash: 3113975747
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
@@ -433,8 +433,10 @@ m_PackageAssets:
         - 2.6.2
         - 2.6.3-preview.2
         - 2.6.3
+        - 2.6.4
         - 2.7.1
         - 2.7.2
+        - 2.7.3
         compatible:
         - 2.5.0
         - 2.6.0-preview.2
@@ -448,9 +450,11 @@ m_PackageAssets:
         - 2.6.2
         - 2.6.3-preview.2
         - 2.6.3
+        - 2.6.4
         - 2.7.1
         - 2.7.2
-        verified: 2.6.3
+        - 2.7.3
+        verified: 2.6.4
       dependencies: []
       resolvedDependencies: []
       keywords:

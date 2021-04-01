@@ -18,7 +18,7 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 1
     externalNormalMap: 0
-    heightScale: 0.077
+    heightScale: 0.055
     normalMapFilter: 0
   isReadable: 0
   streamingMipmaps: 0
@@ -33,12 +33,12 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: -1
-    aniso: -1
+    aniso: 1
     mipBias: -100
     wrapU: -1
     wrapV: -1
     wrapW: -1
-  nPOTScale: 1
+  nPOTScale: 3
   lightmap: 0
   compressionQuality: 50
   spriteMode: 0
