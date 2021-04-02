@@ -2,14 +2,24 @@ using UnityEngine;
 
 public class player_controller : MonoBehaviour
 {
-    [SerializeField] private float _speed = 3;
+    enum SpeedState
+    {
+        Sprint,
+        Normal,
+        Stealth
+    }
+
+    private SpeedState setState;
+
+    [SerializeField] private float _speed = 3f;
     private Vector3 _direction;
 
     private float _xRot;
     private float _yRot;
     public Camera p_camera;
     public float sensivity = 200f;
-    public int sprint_value = 5;
+    public float sprint_value = 3f;
+    public float stealth_value = 1.5f;
 
     private float _xRotCurrent;
     private float _yRotCurrent;
@@ -42,11 +52,28 @@ public class player_controller : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             _speed += sprint_value;
+            this.setState = SpeedState.Sprint;
         }
 
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             _speed -= sprint_value;
+            this.setState = SpeedState.Sprint;
+        }
+    }
+
+    private void Stealth()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            _speed -= stealth_value;
+            this.setState = SpeedState.Stealth;
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            _speed += stealth_value;
+            this.setState = SpeedState.Stealth;
         }
     }
 
