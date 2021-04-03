@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class exit_start_story : MonoBehaviour
+public class Exit_start_story : MonoBehaviour
 {
-    [SerializeField] private GameObject _storyteller;
+    [SerializeField] private Storyteller _storyteller;
     public bool flag_start_story = true;
 
 
@@ -14,7 +14,7 @@ public class exit_start_story : MonoBehaviour
             flag_start_story = false;
             Debug.Log("Player_trigger_exitstartroom");
 
-            _storyteller.GetComponent<storyteller>().Exit_start_story();
+            _storyteller.Exit_start_story();
         }
     }
 }

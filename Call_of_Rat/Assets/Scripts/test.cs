@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class test : MonoBehaviour
+public class Test : MonoBehaviour
 {
 
     private void OnTriggerEnter()

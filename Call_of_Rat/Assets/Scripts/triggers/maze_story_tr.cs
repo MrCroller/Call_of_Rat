@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class maze_story_tr : MonoBehaviour
+public class Maze_story_tr : MonoBehaviour
 {
-    [SerializeField] private GameObject _rat_maze;
+    [SerializeField] private Rat_maze _rat_maze;
     public bool flag_start_story = false;
 
     private void OnTriggerEnter(Collider col)
@@ -13,7 +13,7 @@ public class maze_story_tr : MonoBehaviour
             Debug.Log("Player_trigger_ratmaze");
             flag_start_story = true;
 
-            _rat_maze.GetComponent<rat_maze>().MazeStory();
+            _rat_maze.MazeStory();
         }
     }
 }

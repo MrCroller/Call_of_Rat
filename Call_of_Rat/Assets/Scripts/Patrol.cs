@@ -16,10 +16,17 @@ public class Patrol : MonoBehaviour
     [SerializeField] private Transform[] _walk_points;
     private int _randomSpot;
 
+    private NavMeshAgent _navMesh;
+    /// <summary>
+    /// ћинимальна€ дистанци€ до точки патрулировани€
+    /// </summary>
+    private readonly float _mniDistance = 1.3f;
+
     private void Start()
     {
         _waitTime = startWaitTime;
         _randomSpot = Random.Range(0, _walk_points.Length);
+        _navMesh = GetComponent<NavMeshAgent>();
     }
 
     private void Update()
@@ -34,7 +41,7 @@ public class Patrol : MonoBehaviour
     {
         Walk(_walk_points[_randomSpot]);
 
-        if (Vector3.Distance(transform.position, _walk_points[_randomSpot].position) < 1.3f)
+        if (Vector3.Distance(transform.position, _walk_points[_randomSpot].position) < _mniDistance)
         {
             if (_waitTime <= 0)
             {
@@ -54,11 +61,11 @@ public class Patrol : MonoBehaviour
     /// <param name="target"></param>
     private void Walk(Transform walk_point)
     {
-        GetComponent<NavMeshAgent>().SetDestination(walk_point.position);
+        _navMesh.SetDestination(walk_point.position);
     }
 
     public IEnumerator WaitForRandom()
     {
-        yield return new WaitForSeconds(Random.Range(2,5));
+        yield return new WaitForSeconds(Random.Range(2, 5));
     }
 }

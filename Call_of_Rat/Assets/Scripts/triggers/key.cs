@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class key : MonoBehaviour
+public class Key : MonoBehaviour
 {
-    [SerializeField] private GameObject _player;
+    [SerializeField] private Player _player;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -10,7 +10,7 @@ public class key : MonoBehaviour
         {
             Debug.Log("take_key");
 
-            _player.GetComponent<player>().key_count++;
+            _player.key_count++;
             gameObject.SetActive(false);
         }
     }

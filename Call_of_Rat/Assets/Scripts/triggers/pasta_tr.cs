@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class pasta_tr : MonoBehaviour
+public class Pasta_tr : MonoBehaviour
 {
-    [SerializeField] private GameObject _rat_st;
+    [SerializeField] private Rat_st _rat_st;
     public bool flag_start_story = false;
 
     private void OnTriggerEnter(Collider col)
@@ -13,7 +13,7 @@ public class pasta_tr : MonoBehaviour
             Debug.Log("Player_trigger_pasta");
             flag_start_story = true;
 
-            _rat_st.GetComponent<rat_st>().Pasta();
+            _rat_st.Pasta();
         }
     }
 }

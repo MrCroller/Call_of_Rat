@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class s_lock : MonoBehaviour
+public class S_lock : MonoBehaviour
 {
     [SerializeField] private GameObject _player;
-    [SerializeField] private GameObject _door;
+    [SerializeField] private Door _door;
     [SerializeField] private GameObject _plight;
     private static int key_count = 0;
 
@@ -13,15 +13,18 @@ public class s_lock : MonoBehaviour
         {
             Debug.Log("Touch_secret_lock");
 
-            if (_player.GetComponent<player>().key_count > 0 && !gameObject.GetComponent<MeshRenderer>().enabled)
+            if (_player.GetComponent<Player>().key_count > 0 && !gameObject.GetComponent<MeshRenderer>().enabled)
             {
                 gameObject.GetComponent<MeshRenderer>().enabled = true;
                 _plight.SetActive(true);
 
-                _player.GetComponent<player>().key_count--;
+                _player.GetComponent<Player>().key_count--;
                 key_count++;
 
-                if (key_count == 5) _door.GetComponent<door>().button_flag = true;
+                if (key_count == 5)
+                {
+                    _door.button_flag = true;
+                }
             }
         }
     }

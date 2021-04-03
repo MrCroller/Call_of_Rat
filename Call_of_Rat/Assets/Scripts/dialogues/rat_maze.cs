@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 
-public class rat_maze : MonoBehaviour
+public class Rat_maze : MonoBehaviour
 {
     [SerializeField] public TextMeshPro text_mesh_ratmaze;
     [SerializeField] public Transform text_rot;

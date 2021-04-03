@@ -1,6 +1,6 @@
 m_ProjectFiles:
   m_ManifestFileStatus:
-    m_FilePath: "E:/\u041A\u0443\u0440\u0441/Unity/GBUnity1/Call_of_Rat/Packages/manifest.json"
+    m_FilePath: E:/Kurs/Unity/GBUnity1/Call_of_Rat/Packages/manifest.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
@@ -8,12 +8,12 @@ m_ProjectFiles:
       ticks: 637528739312352470
     m_Hash: 64475967
   m_LockFileStatus:
-    m_FilePath: "E:/\u041A\u0443\u0440\u0441/Unity/GBUnity1/Call_of_Rat/Packages/packages-lock.json"
+    m_FilePath: E:/Kurs/Unity/GBUnity1/Call_of_Rat/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637528739902139455
+      ticks: 637530294554809503
     m_Hash: 3113975747
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
@@ -126,7 +126,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 3.5.2
       source: 1
-      resolvedPath: "E:\\\u041A\u0443\u0440\u0441\\Unity\\GBUnity1\\Call_of_Rat\\Library\\PackageCache\\com.unity.ads@3.5.2"
+      resolvedPath: E:\Kurs\Unity\GBUnity1\Call_of_Rat\Library\PackageCache\com.unity.ads@3.5.2
       assetPath: Packages/com.unity.ads
       name: com.unity.ads
       displayName: Advertisement
@@ -258,7 +258,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 3.5.3
       source: 1
-      resolvedPath: "E:\\\u041A\u0443\u0440\u0441\\Unity\\GBUnity1\\Call_of_Rat\\Library\\PackageCache\\com.unity.analytics@3.5.3"
+      resolvedPath: E:\Kurs\Unity\GBUnity1\Call_of_Rat\Library\PackageCache\com.unity.analytics@3.5.3
       assetPath: Packages/com.unity.analytics
       name: com.unity.analytics
       displayName: Analytics Library
@@ -382,7 +382,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 2.5.0
       source: 1
-      resolvedPath: "E:\\\u041A\u0443\u0440\u0441\\Unity\\GBUnity1\\Call_of_Rat\\Library\\PackageCache\\com.unity.cinemachine@2.5.0"
+      resolvedPath: E:\Kurs\Unity\GBUnity1\Call_of_Rat\Library\PackageCache\com.unity.cinemachine@2.5.0
       assetPath: Packages/com.unity.cinemachine
       name: com.unity.cinemachine
       displayName: Cinemachine
@@ -505,7 +505,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.3.9
       source: 1
-      resolvedPath: "E:\\\u041A\u0443\u0440\u0441\\Unity\\GBUnity1\\Call_of_Rat\\Library\\PackageCache\\com.unity.collab-proxy@1.3.9"
+      resolvedPath: E:\Kurs\Unity\GBUnity1\Call_of_Rat\Library\PackageCache\com.unity.collab-proxy@1.3.9
       assetPath: Packages/com.unity.collab-proxy
       name: com.unity.collab-proxy
       displayName: Unity Collaborate
@@ -600,7 +600,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 2.0.7
       source: 1
-      resolvedPath: "E:\\\u041A\u0443\u0440\u0441\\Unity\\GBUnity1\\Call_of_Rat\\Library\\PackageCache\\com.unity.ide.rider@2.0.7"
+      resolvedPath: E:\Kurs\Unity\GBUnity1\Call_of_Rat\Library\PackageCache\com.unity.ide.rider@2.0.7
       assetPath: Packages/com.unity.ide.rider
       name: com.unity.ide.rider
       displayName: JetBrains Rider Editor
@@ -703,7 +703,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 2.0.7
       source: 1
-      resolvedPath: "E:\\\u041A\u0443\u0440\u0441\\Unity\\GBUnity1\\Call_of_Rat\\Library\\PackageCache\\com.unity.ide.visualstudio@2.0.7"
+      resolvedPath: E:\Kurs\Unity\GBUnity1\Call_of_Rat\Library\PackageCache\com.unity.ide.visualstudio@2.0.7
       assetPath: Packages/com.unity.ide.visualstudio
       name: com.unity.ide.visualstudio
       displayName: Visual Studio Editor
@@ -784,7 +784,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.2.3
       source: 1
-      resolvedPath: "E:\\\u041A\u0443\u0440\u0441\\Unity\\GBUnity1\\Call_of_Rat\\Library\\PackageCache\\com.unity.ide.vscode@1.2.3"
+      resolvedPath: E:\Kurs\Unity\GBUnity1\Call_of_Rat\Library\PackageCache\com.unity.ide.vscode@1.2.3
       assetPath: Packages/com.unity.ide.vscode
       name: com.unity.ide.vscode
       displayName: Visual Studio Code Editor
@@ -853,7 +853,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.0.8
       source: 1
-      resolvedPath: "E:\\\u041A\u0443\u0440\u0441\\Unity\\GBUnity1\\Call_of_Rat\\Library\\PackageCache\\com.unity.multiplayer-hlapi@1.0.8"
+      resolvedPath: E:\Kurs\Unity\GBUnity1\Call_of_Rat\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.8
       assetPath: Packages/com.unity.multiplayer-hlapi
       name: com.unity.multiplayer-hlapi
       displayName: Multiplayer HLAPI
@@ -923,7 +923,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 2.3.0
       source: 1
-      resolvedPath: "E:\\\u041A\u0443\u0440\u0441\\Unity\\GBUnity1\\Call_of_Rat\\Library\\PackageCache\\com.unity.postprocessing@2.3.0"
+      resolvedPath: E:\Kurs\Unity\GBUnity1\Call_of_Rat\Library\PackageCache\com.unity.postprocessing@2.3.0
       assetPath: Packages/com.unity.postprocessing
       name: com.unity.postprocessing
       displayName: Post Processing
@@ -1006,7 +1006,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 2.1.1
       source: 1
-      resolvedPath: "E:\\\u041A\u0443\u0440\u0441\\Unity\\GBUnity1\\Call_of_Rat\\Library\\PackageCache\\com.unity.purchasing@2.1.1"
+      resolvedPath: E:\Kurs\Unity\GBUnity1\Call_of_Rat\Library\PackageCache\com.unity.purchasing@2.1.1
       assetPath: Packages/com.unity.purchasing
       name: com.unity.purchasing
       displayName: In App Purchasing
@@ -1082,6 +1082,7 @@ m_PackageAssets:
         - 3.0.0-pre.5
         - 3.0.0-pre.6
         - 3.0.1
+        - 3.0.2
         compatible:
         - 0.0.3
         - 0.0.4
@@ -1115,6 +1116,7 @@ m_PackageAssets:
         - 3.0.0-pre.5
         - 3.0.0-pre.6
         - 3.0.1
+        - 3.0.2
         verified: 2.2.2
       dependencies:
       - name: com.unity.ugui
@@ -1155,7 +1157,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.1.22
       source: 1
-      resolvedPath: "E:\\\u041A\u0443\u0440\u0441\\Unity\\GBUnity1\\Call_of_Rat\\Library\\PackageCache\\com.unity.test-framework@1.1.22"
+      resolvedPath: E:\Kurs\Unity\GBUnity1\Call_of_Rat\Library\PackageCache\com.unity.test-framework@1.1.22
       assetPath: Packages/com.unity.test-framework
       name: com.unity.test-framework
       displayName: Test Framework
@@ -1244,7 +1246,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 3.0.1
       source: 1
-      resolvedPath: "E:\\\u041A\u0443\u0440\u0441\\Unity\\GBUnity1\\Call_of_Rat\\Library\\PackageCache\\com.unity.textmeshpro@3.0.1"
+      resolvedPath: E:\Kurs\Unity\GBUnity1\Call_of_Rat\Library\PackageCache\com.unity.textmeshpro@3.0.1
       assetPath: Packages/com.unity.textmeshpro
       name: com.unity.textmeshpro
       displayName: TextMeshPro
@@ -1395,7 +1397,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.4.6
       source: 1
-      resolvedPath: "E:\\\u041A\u0443\u0440\u0441\\Unity\\GBUnity1\\Call_of_Rat\\Library\\PackageCache\\com.unity.timeline@1.4.6"
+      resolvedPath: E:\Kurs\Unity\GBUnity1\Call_of_Rat\Library\PackageCache\com.unity.timeline@1.4.6
       assetPath: Packages/com.unity.timeline
       name: com.unity.timeline
       displayName: Timeline
@@ -1598,7 +1600,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 2.1.6
       source: 1
-      resolvedPath: "E:\\\u041A\u0443\u0440\u0441\\Unity\\GBUnity1\\Call_of_Rat\\Library\\PackageCache\\com.unity.xr.legacyinputhelpers@2.1.6"
+      resolvedPath: E:\Kurs\Unity\GBUnity1\Call_of_Rat\Library\PackageCache\com.unity.xr.legacyinputhelpers@2.1.6
       assetPath: Packages/com.unity.xr.legacyinputhelpers
       name: com.unity.xr.legacyinputhelpers
       displayName: XR Legacy Input Helpers
@@ -3418,7 +3420,7 @@ m_PackageAssets:
       isDirectDependency: 0
       version: 1.0.6
       source: 1
-      resolvedPath: "E:\\\u041A\u0443\u0440\u0441\\Unity\\GBUnity1\\Call_of_Rat\\Library\\PackageCache\\com.unity.ext.nunit@1.0.6"
+      resolvedPath: E:\Kurs\Unity\GBUnity1\Call_of_Rat\Library\PackageCache\com.unity.ext.nunit@1.0.6
       assetPath: Packages/com.unity.ext.nunit
       name: com.unity.ext.nunit
       displayName: Custom NUnit
@@ -3479,7 +3481,7 @@ m_PackageAssets:
       isDirectDependency: 0
       version: 0.1.6-preview
       source: 1
-      resolvedPath: "E:\\\u041A\u0443\u0440\u0441\\Unity\\GBUnity1\\Call_of_Rat\\Library\\PackageCache\\nuget.mono-cecil@0.1.6-preview"
+      resolvedPath: E:\Kurs\Unity\GBUnity1\Call_of_Rat\Library\PackageCache\nuget.mono-cecil@0.1.6-preview
       assetPath: Packages/nuget.mono-cecil
       name: nuget.mono-cecil
       displayName: Mono Cecil
@@ -3526,5 +3528,5 @@ m_PackageAssets:
         path: 
   m_LocalPackages:
     m_LocalFileStatus: []
-m_ProjectPath: "E:/\u041A\u0443\u0440\u0441/Unity/GBUnity1/Call_of_Rat/Packages"
+m_ProjectPath: E:/Kurs/Unity/GBUnity1/Call_of_Rat/Packages
 m_EditorVersion: 2020.2.7f1 (c53830e277f1)

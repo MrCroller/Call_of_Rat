@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 
-public class storyteller : MonoBehaviour
+public class Storyteller : MonoBehaviour
 {
     [SerializeField] private Transform _target;
     [SerializeField] private float dirSpeed;

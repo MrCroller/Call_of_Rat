@@ -1,14 +1,20 @@
 using UnityEngine;
 
-public class player_controller : MonoBehaviour
+public class Player_controller : MonoBehaviour
 {
-    enum SpeedState
+    /// <summary>
+    /// Статусы движения персонажа
+    /// </summary>
+    private enum SpeedState
     {
         Sprint,
         Normal,
         Stealth
     }
 
+    /// <summary>
+    /// Статус режима движения персонажа
+    /// </summary>
     private SpeedState setState;
 
     [SerializeField] private float _speed = 3f;
@@ -17,8 +23,17 @@ public class player_controller : MonoBehaviour
     private float _xRot;
     private float _yRot;
     public Camera p_camera;
+    /// <summary>
+    /// Чувствительность мыши
+    /// </summary>
     public float sensivity = 200f;
+    /// <summary>
+    /// Ускорение бега
+    /// </summary>
     public float sprint_value = 3f;
+    /// <summary>
+    /// Замедление скрытности
+    /// </summary>
     public float stealth_value = 1.5f;
 
     private float _xRotCurrent;
@@ -29,12 +44,16 @@ public class player_controller : MonoBehaviour
 
     public GameObject playerGO;
 
+    private void Start()
+    {
+        Cursor.visible = false;
+    }
+
     private void Update()
     {
-        _direction.x = Input.GetAxis("Horizontal");
-        _direction.z = Input.GetAxis("Vertical");
-
+        Move();
         MouseMove();
+
         Sprint();
     }
 
@@ -45,6 +64,15 @@ public class player_controller : MonoBehaviour
     }
 
     /// <summary>
+    /// Передвижение персонажа
+    /// </summary>
+    private void Move()
+    {
+        _direction.x = Input.GetAxis("Horizontal");
+        _direction.z = Input.GetAxis("Vertical");
+    }
+
+    /// <summary>
     /// Ускорение персонажа
     /// </summary>
     private void Sprint()
@@ -52,28 +80,31 @@ public class player_controller : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             _speed += sprint_value;
-            this.setState = SpeedState.Sprint;
+            setState = SpeedState.Sprint;
         }
 
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             _speed -= sprint_value;
-            this.setState = SpeedState.Sprint;
+            setState = SpeedState.Sprint;
         }
     }
 
+    /// <summary>
+    /// Режим скрытности
+    /// </summary>
     private void Stealth()
     {
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             _speed -= stealth_value;
-            this.setState = SpeedState.Stealth;
+            setState = SpeedState.Stealth;
         }
 
         if (Input.GetKeyUp(KeyCode.LeftControl))
         {
             _speed += stealth_value;
-            this.setState = SpeedState.Stealth;
+            setState = SpeedState.Stealth;
         }
     }
 

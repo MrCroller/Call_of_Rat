@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class censer : MonoBehaviour
+public class Censer : MonoBehaviour
 {
     [SerializeField] private float _speed_an;
-    [SerializeField] private GameObject _player;
+    [SerializeField] private Player _player;
     [SerializeField] private GameObject _censer;
     public bool take_go = false;
 
@@ -22,7 +22,7 @@ public class censer : MonoBehaviour
     {
         Debug.Log("Take_censer");
         take_go = true;
-        _player.GetComponent<player>().flag_take_censer = true;
+        _player.flag_take_censer = true;
         _censer.SetActive(false);
     }
 }

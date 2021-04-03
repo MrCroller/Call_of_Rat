@@ -1,12 +1,21 @@
 using UnityEngine;
 
-public class door : MonoBehaviour
+public class Door : MonoBehaviour
 {
     // Тригер открытия двери
     [SerializeField] public GameObject key;
 
+    /// <summary>
+    /// Замок на двери
+    /// </summary>
     [SerializeField] private GameObject _lock;
+    /// <summary>
+    /// Щеколда
+    /// </summary>
     [SerializeField] private Transform _sash;
+    /// <summary>
+    /// Дверь (поворот)
+    /// </summary>
     [SerializeField] private Transform _door;
     private Vector3 _openPosition_sash;
     private Quaternion _openPosition_door;

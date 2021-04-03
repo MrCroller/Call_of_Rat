@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Button : MonoBehaviour
 {
-    [SerializeField] private GameObject _door;
-    [SerializeField] private GameObject _start_story;
+    [SerializeField] private Door _door;
+    [SerializeField] private Start_story _start_story_trigger;
 
     private void OnTriggerEnter(Collider col)
     {
@@ -13,10 +13,10 @@ public class Button : MonoBehaviour
             Debug.Log("Button");
 
             // Флаг для открытия двери
-            _door.GetComponent<door>().button_flag = true;
+            _door.button_flag = true;
 
             // Отмена начального диалога из-за открытия двери
-            _start_story.GetComponent<start_story>().flag_start_story = false;
+            _start_story_trigger.flag_start_story = false;
         }
 
     }
