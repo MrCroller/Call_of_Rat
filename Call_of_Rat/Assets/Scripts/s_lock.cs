@@ -1,27 +1,40 @@
 using UnityEngine;
+using UnityEngine.Events;
 
-public class s_lock : MonoBehaviour
+public class S_lock : MonoBehaviour
 {
-    [SerializeField] private GameObject _player;
-    [SerializeField] private GameObject _door;
+    [SerializeField] private Player _player;
+    /// <summary>
+    /// Отображение ключа
+    /// </summary>
     [SerializeField] private GameObject _plight;
+    /// <summary>
+    /// Событие открытия двери
+    /// </summary>
+    public UnityEvent open;
+    /// <summary>
+    /// Кол-во активированных ключей
+    /// </summary>
     private static int key_count = 0;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "trigger_hand")
+        if (other.CompareTag("trigger_hand"))
         {
             Debug.Log("Touch_secret_lock");
 
-            if (_player.GetComponent<player>().key_count > 0 && !gameObject.GetComponent<MeshRenderer>().enabled)
+            if (_player.key_count > 0 && !gameObject.GetComponent<MeshRenderer>().enabled)
             {
                 gameObject.GetComponent<MeshRenderer>().enabled = true;
                 _plight.SetActive(true);
 
-                _player.GetComponent<player>().key_count--;
+                _player.key_count--;
                 key_count++;
 
-                if (key_count == 5) _door.GetComponent<door>().button_flag = true;
+                if (key_count == 5)
+                {
+                    open?.Invoke();
+                }
             }
         }
     }

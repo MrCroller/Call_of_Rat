@@ -11,19 +11,19 @@ C:\Program Files\Unity\Hub\Editor\2020.2.7f1\Editor\Unity.exe
 -name
 AssetImportWorker0
 -projectPath
-E:/Курс/Unity/GBUnity1/Call_of_Rat
+E:/Kurs/Unity/GBUnity1/Call_of_Rat
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-52313
-Successfully changed project path to: E:/Курс/Unity/GBUnity1/Call_of_Rat
-E:/Курс/Unity/GBUnity1/Call_of_Rat
+64270
+Successfully changed project path to: E:/Kurs/Unity/GBUnity1/Call_of_Rat
+E:/Kurs/Unity/GBUnity1/Call_of_Rat
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 66.19 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 122.38 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.2.7f1 (c53830e277f1)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path E:/Курс/Unity/GBUnity1/Call_of_Rat/Assets
+[Subsystems] Discovering subsystems at path E:/Kurs/Unity/GBUnity1/Call_of_Rat/Assets
 GfxDevice: creating device client; threaded=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
@@ -35,73 +35,165 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56072
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56648
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001486 seconds.
+Registered in 0.001473 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 62.15 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 65.38 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.183 seconds
+- Completed reload, in  2.454 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.004052 seconds.
+Registered in 0.004444 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.78 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.90 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.279 seconds
+- Completed reload, in  1.612 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 0.73 ms, found 0 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
+Refreshing native plugins compatible for Editor in 0.78 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1839 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 88.2 MB.
-System memory in use after: 86.9 MB.
+Unloading 1836 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 88.6 MB.
+System memory in use after: 87.2 MB.
 
-Unloading 63 unused Assets to reduce memory usage. Loaded Objects now: 2260.
-Total: 3.342200 ms (FindLiveObjects: 0.377100 ms CreateObjectMapping: 0.088100 ms MarkObjects: 2.013000 ms  DeleteObjects: 0.862300 ms)
+Unloading 63 unused Assets to reduce memory usage. Loaded Objects now: 2257.
+Total: 3.273000 ms (FindLiveObjects: 0.347000 ms CreateObjectMapping: 0.095400 ms MarkObjects: 1.996500 ms  DeleteObjects: 0.833100 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   requireTextureImportCompression: false -> true
 ========================================================================
 Received Import Request.
-  path: Assets/Textures/лабиринт.png
-  artifactKey: Guid(19630c279247bc045bb42a048dff45d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/лабиринт.png using Guid(19630c279247bc045bb42a048dff45d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '601d57df392d634b42a714a49629dd1a') in 0.088502 seconds
-  Import took 0.092033 seconds .
+  path: Assets/Prefabs/My/player.prefab
+  artifactKey: Guid(fbc810a0b39c2184fb59bf8665784855) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/My/player.prefab using Guid(fbc810a0b39c2184fb59bf8665784855) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f02e554e7cbe7fe09ba090f5af8520a') in 0.143749 seconds
+  Import took 0.147868 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 78.887790 seconds.
-  path: Assets/Textures/Normal Map/tough_coat_NM.jpg
-  artifactKey: Guid(3aed65a8ef03cb14085b3e06c54e34a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Normal Map/tough_coat_NM.jpg using Guid(3aed65a8ef03cb14085b3e06c54e34a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1312c7bf706c60456fd4a57ae0cdd1b4') in 0.079607 seconds
-  Import took 0.083163 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 6.528967 seconds.
-  path: Assets/Textures/Normal Map/tough_coat_NM.jpg
-  artifactKey: Guid(3aed65a8ef03cb14085b3e06c54e34a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Normal Map/tough_coat_NM.jpg using Guid(3aed65a8ef03cb14085b3e06c54e34a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39a558d2f31664a16923026ac2a99807') in 0.014900 seconds
-  Import took 0.018674 seconds .
+  Time since last request: 0.000372 seconds.
+  path: Assets/Prefabs/My/RatColovrat.prefab
+  artifactKey: Guid(984140854253f2a47b95f7e3e1d7faca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/My/RatColovrat.prefab using Guid(984140854253f2a47b95f7e3e1d7faca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8d91c1761d89e05a68e58fa94a4d3d56') in 0.085336 seconds
+  Import took 0.090493 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.004085 seconds.
+Registered in 0.004199 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.99 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.296 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.84 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1815 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 90.6 MB.
+System memory in use after: 89.2 MB.
+
+Unloading 55 unused Assets to reduce memory usage. Loaded Objects now: 2272.
+Total: 5.019500 ms (FindLiveObjects: 0.707900 ms CreateObjectMapping: 0.156800 ms MarkObjects: 2.783100 ms  DeleteObjects: 1.369700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  requireTextureImportCompression: false -> true
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004776 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.81 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.174 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.82 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1814 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 90.5 MB.
+System memory in use after: 89.2 MB.
+
+Unloading 54 unused Assets to reduce memory usage. Loaded Objects now: 2275.
+Total: 3.462500 ms (FindLiveObjects: 0.346400 ms CreateObjectMapping: 0.084200 ms MarkObjects: 2.094100 ms  DeleteObjects: 0.936200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  requireTextureImportCompression: false -> true
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004663 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.17 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.232 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.81 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1814 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 90.6 MB.
+System memory in use after: 89.2 MB.
+
+Unloading 54 unused Assets to reduce memory usage. Loaded Objects now: 2278.
+Total: 3.460000 ms (FindLiveObjects: 0.424300 ms CreateObjectMapping: 0.086700 ms MarkObjects: 1.997600 ms  DeleteObjects: 0.950100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  requireTextureImportCompression: false -> true
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004279 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.81 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.307 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.82 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1814 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 90.6 MB.
+System memory in use after: 89.2 MB.
+
+Unloading 54 unused Assets to reduce memory usage. Loaded Objects now: 2281.
+Total: 3.955200 ms (FindLiveObjects: 0.367100 ms CreateObjectMapping: 0.090000 ms MarkObjects: 2.348300 ms  DeleteObjects: 1.148400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  requireTextureImportCompression: false -> true
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004274 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 0.79 ms, found 0 plugins.
@@ -110,89 +202,142 @@ Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.132 seconds
+- Completed reload, in  1.208 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.83 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.84 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1818 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 90.1 MB.
-System memory in use after: 88.7 MB.
+Unloading 1814 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 90.6 MB.
+System memory in use after: 89.2 MB.
 
-Unloading 54 unused Assets to reduce memory usage. Loaded Objects now: 2270.
-Total: 3.384900 ms (FindLiveObjects: 0.397500 ms CreateObjectMapping: 0.090300 ms MarkObjects: 2.038000 ms  DeleteObjects: 0.857300 ms)
+Unloading 54 unused Assets to reduce memory usage. Loaded Objects now: 2284.
+Total: 3.343200 ms (FindLiveObjects: 0.384100 ms CreateObjectMapping: 0.087900 ms MarkObjects: 1.933400 ms  DeleteObjects: 0.936000 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   requireTextureImportCompression: false -> true
 ========================================================================
-Received Import Request.
-  Time since last request: 41.800937 seconds.
-  path: Assets/Textures/Normal Map/tough_coat_NM.jpg
-  artifactKey: Guid(3aed65a8ef03cb14085b3e06c54e34a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Normal Map/tough_coat_NM.jpg using Guid(3aed65a8ef03cb14085b3e06c54e34a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6914d72dec33d0cd65fd89ab5d4067de') in 0.075649 seconds
-  Import took 0.081157 seconds .
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003972 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.88 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.268 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.90 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1814 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 90.6 MB.
+System memory in use after: 89.3 MB.
 
+Unloading 54 unused Assets to reduce memory usage. Loaded Objects now: 2287.
+Total: 3.602800 ms (FindLiveObjects: 0.397600 ms CreateObjectMapping: 0.089200 ms MarkObjects: 2.157800 ms  DeleteObjects: 0.956400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  requireTextureImportCompression: false -> true
 ========================================================================
-Received Import Request.
-  Time since last request: 7.559801 seconds.
-  path: Assets/Textures/Normal Map/tough_coat_NM.jpg
-  artifactKey: Guid(3aed65a8ef03cb14085b3e06c54e34a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Normal Map/tough_coat_NM.jpg using Guid(3aed65a8ef03cb14085b3e06c54e34a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0c154277fb973baac5e648a1f106d9de') in 0.013898 seconds
-  Import took 0.017610 seconds .
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004184 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.81 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.235 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.84 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1814 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 90.6 MB.
+System memory in use after: 89.3 MB.
 
+Unloading 54 unused Assets to reduce memory usage. Loaded Objects now: 2290.
+Total: 3.387400 ms (FindLiveObjects: 0.377800 ms CreateObjectMapping: 0.084700 ms MarkObjects: 1.977400 ms  DeleteObjects: 0.945700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  requireTextureImportCompression: false -> true
 ========================================================================
-Received Import Request.
-  Time since last request: 9.725936 seconds.
-  path: Assets/Textures/Normal Map/tough_coat_NM.jpg
-  artifactKey: Guid(3aed65a8ef03cb14085b3e06c54e34a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Normal Map/tough_coat_NM.jpg using Guid(3aed65a8ef03cb14085b3e06c54e34a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '293bb7ae971c7b6e2d9d5fde23e8d5f1') in 0.015423 seconds
-  Import took 0.019178 seconds .
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004687 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.80 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.192 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.80 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1814 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 90.6 MB.
+System memory in use after: 89.3 MB.
 
+Unloading 54 unused Assets to reduce memory usage. Loaded Objects now: 2293.
+Total: 3.933000 ms (FindLiveObjects: 0.381300 ms CreateObjectMapping: 0.092800 ms MarkObjects: 2.509600 ms  DeleteObjects: 0.947900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  requireTextureImportCompression: false -> true
 ========================================================================
-Received Import Request.
-  Time since last request: 4.653383 seconds.
-  path: Assets/Textures/Normal Map/tough_coat_NM.jpg
-  artifactKey: Guid(3aed65a8ef03cb14085b3e06c54e34a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Normal Map/tough_coat_NM.jpg using Guid(3aed65a8ef03cb14085b3e06c54e34a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '04d38570e3d667a8c7cc81b99bb8433e') in 0.014563 seconds
-  Import took 0.018736 seconds .
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003997 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.80 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.198 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.03 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1814 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 90.6 MB.
+System memory in use after: 89.3 MB.
 
+Unloading 54 unused Assets to reduce memory usage. Loaded Objects now: 2296.
+Total: 3.897300 ms (FindLiveObjects: 0.380200 ms CreateObjectMapping: 0.104300 ms MarkObjects: 2.312200 ms  DeleteObjects: 1.099300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  requireTextureImportCompression: false -> true
 ========================================================================
-Received Import Request.
-  Time since last request: 3.773822 seconds.
-  path: Assets/Textures/Normal Map/tough_coat_NM.jpg
-  artifactKey: Guid(3aed65a8ef03cb14085b3e06c54e34a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Normal Map/tough_coat_NM.jpg using Guid(3aed65a8ef03cb14085b3e06c54e34a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f7c9fec7b68076882580d6ab65911d0') in 0.015523 seconds
-  Import took 0.019304 seconds .
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003946 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.89 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.192 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.81 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1814 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 90.6 MB.
+System memory in use after: 89.3 MB.
 
-========================================================================
-Received Import Request.
-  Time since last request: 3.952376 seconds.
-  path: Assets/Textures/Normal Map/tough_coat_NM.jpg
-  artifactKey: Guid(3aed65a8ef03cb14085b3e06c54e34a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Normal Map/tough_coat_NM.jpg using Guid(3aed65a8ef03cb14085b3e06c54e34a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92b33d5cd3fc9e75e875ec5fe30e68b3') in 0.014987 seconds
-  Import took 0.018661 seconds .
+Unloading 54 unused Assets to reduce memory usage. Loaded Objects now: 2299.
+Total: 3.700300 ms (FindLiveObjects: 0.362200 ms CreateObjectMapping: 0.085900 ms MarkObjects: 2.097400 ms  DeleteObjects: 1.153500 ms)
 
-========================================================================
-Received Import Request.
-  Time since last request: 61.664580 seconds.
-  path: Assets/Textures/Normal Map/stoun_wall_NM.jpg
-  artifactKey: Guid(2e340ea5b96f1784a9607e9be31dc1e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Normal Map/stoun_wall_NM.jpg using Guid(2e340ea5b96f1784a9607e9be31dc1e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1859d2e73d066446213a8a8a0ef3795c') in 0.047521 seconds
-  Import took 0.054051 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 10.344177 seconds.
-  path: Assets/Textures/Normal Map/stoun_wall_NM.jpg
-  artifactKey: Guid(2e340ea5b96f1784a9607e9be31dc1e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Normal Map/stoun_wall_NM.jpg using Guid(2e340ea5b96f1784a9607e9be31dc1e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1aa8383804009ef16f70cadb78c2ea9') in 0.030822 seconds
-  Import took 0.036863 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 8.793831 seconds.
-  path: Assets/Textures/Normal Map/stoun_wall_NM.jpg
-  artifactKey: Guid(2e340ea5b96f1784a9607e9be31dc1e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Normal Map/stoun_wall_NM.jpg using Guid(2e340ea5b96f1784a9607e9be31dc1e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe227c1affd7ddb0322fea5756a06e71') in 0.030634 seconds
-  Import took 0.036728 seconds .
-
+AssetImportParameters requested are different than current active one (requested -> active):
+  requireTextureImportCompression: false -> true
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

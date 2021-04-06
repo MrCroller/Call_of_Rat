@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 
-public class rat_st : MonoBehaviour
+public class Rat_st : MonoBehaviour
 {
     // Крыса на стуле
     [SerializeField] public TextMeshPro text_mesh_st;

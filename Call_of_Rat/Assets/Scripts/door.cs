@@ -1,18 +1,29 @@
 using UnityEngine;
 
-public class door : MonoBehaviour
+public class Door : MonoBehaviour
 {
     // Тригер открытия двери
     [SerializeField] public GameObject key;
 
+    /// <summary>
+    /// Замок на двери
+    /// </summary>
     [SerializeField] private GameObject _lock;
+    /// <summary>
+    /// Щеколда
+    /// </summary>
     [SerializeField] private Transform _sash;
+    /// <summary>
+    /// Дверь (поворот)
+    /// </summary>
     [SerializeField] private Transform _door;
     private Vector3 _openPosition_sash;
     private Quaternion _openPosition_door;
 
-    // Флаг для открытия двери
-    public bool button_flag = false;
+    /// <summary>
+    /// Флаг для открытия двери
+    /// </summary>
+    public bool flag_door_open = false;
 
     private void Start()
     {
@@ -25,7 +36,7 @@ public class door : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (button_flag)
+        if (flag_door_open)
         {
             Open();
         }
@@ -34,7 +45,7 @@ public class door : MonoBehaviour
     /// <summary>
     /// Метод открытия двери
     /// </summary>
-    public void Open()
+    private void Open()
     {
         // Снятие замка
         _lock.SetActive(false);
@@ -50,8 +61,13 @@ public class door : MonoBehaviour
 
         if (_door.rotation == _openPosition_door)
         {
-            button_flag = false;
+            flag_door_open = false;
             Debug.Log("open");
         }
+    }
+
+    public void Open_door()
+    {
+        flag_door_open = true;
     }
 }
