@@ -8,7 +8,7 @@ public class Take : MonoBehaviour
     private void OnTriggerEnter(Collider col)
     {
         Debug.Log("take_trigger");
-        if (col.tag == "Player" && !flag_take)
+        if (col.CompareTag("Player") && !flag_take)
         {
             flag_take = true;
             _censer.Take();

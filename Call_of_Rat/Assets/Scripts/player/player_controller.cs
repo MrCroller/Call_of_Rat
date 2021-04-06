@@ -1,21 +1,21 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player_controller : MonoBehaviour
 {
     /// <summary>
     /// Статусы движения персонажа
     /// </summary>
-    private enum SpeedState
+    public enum SpeedState
     {
         Sprint,
         Normal,
         Stealth
     }
 
-    /// <summary>
-    /// Статус режима движения персонажа
-    /// </summary>
-    private SpeedState setState;
+    public SpeedState speedStatus;
+
+    public UnityEvent speedState_Event;
 
     [SerializeField] private float _speed = 3f;
     private Vector3 _direction;
@@ -23,6 +23,10 @@ public class Player_controller : MonoBehaviour
     private float _xRot;
     private float _yRot;
     public Camera p_camera;
+    /// <summary>
+    /// Скрипт движения врагов
+    /// </summary>
+    private readonly Patrol patrol_sc;
     /// <summary>
     /// Чувствительность мыши
     /// </summary>
@@ -55,6 +59,7 @@ public class Player_controller : MonoBehaviour
         MouseMove();
 
         Sprint();
+        Stealth();
     }
 
     private void FixedUpdate()
@@ -80,13 +85,13 @@ public class Player_controller : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             _speed += sprint_value;
-            setState = SpeedState.Sprint;
+            speedStatus = SpeedState.Sprint;
         }
 
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             _speed -= sprint_value;
-            setState = SpeedState.Sprint;
+            speedStatus = SpeedState.Normal;
         }
     }
 
@@ -98,13 +103,15 @@ public class Player_controller : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             _speed -= stealth_value;
-            setState = SpeedState.Stealth;
+            speedStatus = SpeedState.Stealth;
+            speedState_Event?.Invoke();
         }
 
         if (Input.GetKeyUp(KeyCode.LeftControl))
         {
             _speed += stealth_value;
-            setState = SpeedState.Stealth;
+            speedStatus = SpeedState.Normal;
+            speedState_Event?.Invoke();
         }
     }
 

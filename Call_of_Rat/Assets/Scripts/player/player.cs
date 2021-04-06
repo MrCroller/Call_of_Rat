@@ -2,9 +2,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public GameObject bullet;
-    public Transform bulletStartPosition;
-
     [SerializeField] private GameObject _trigger_nand;
     [SerializeField] public Transform p_camera;
     [SerializeField] private Transform _Right_hand;
@@ -17,13 +14,9 @@ public class Player : MonoBehaviour
     /// Священный огонь (выстрел)
     /// </summary>
     [SerializeField] private GameObject _holy_fire;
-    /// <summary>
-    /// Стартовая позиция области выстрела
-    /// </summary>
-    private Transform _start_fire_position;
 
     /// <summary>
-    /// Кол-во ключей от секретной комнаты (5 для открытия)
+    /// Кол-во ключей игрока (5 для открытия)
     /// </summary>
     public int key_count = 0;
 
@@ -43,16 +36,12 @@ public class Player : MonoBehaviour
     /// <summary>
     /// Область поражения
     /// </summary>
-    public float are_fire = 5f;
+    public float are_fire = 7f;
     /// <summary>
     /// Скорость анимации выстрела
     /// </summary>
-    public float speed_fire_time = 4f;
-
-    private void Start()
-    {
-        _start_fire_position = _holy_fire.transform;
-    }
+    public float speed_fire_time = 0.2f;
+    private readonly float _vector_f;
 
     private void Update()
     {
@@ -66,7 +55,7 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (flag_take_censer) FireAnimation();
+        //if (flag_take_censer) FireAnimation();
     }
 
     /// <summary>
@@ -108,21 +97,18 @@ public class Player : MonoBehaviour
     /// </summary>
     private void Fare()
     {
-        
+
         if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("holy_fire!");
             _holy_fire.SetActive(true);
-            _holy_fire.transform.localScale = _start_fire_position.localScale;
             flag_fire = true;
         }
         else if (Input.GetMouseButtonUp(0))
         {
             _holy_fire.SetActive(false);
-            _holy_fire.transform.localScale = _start_fire_position.localScale;
             flag_fire = false;
         }
-        
     }
 
     /// <summary>
@@ -130,14 +116,9 @@ public class Player : MonoBehaviour
     /// </summary>
     private void FireAnimation()
     {
-        if (flag_fire && (_holy_fire.transform.localScale == new Vector3(are_fire, 1f, are_fire)))
+        if (flag_fire)
         {
-            _holy_fire.transform.localScale += new Vector3(Time.deltaTime * speed_fire_time, 0, Time.deltaTime * speed_fire_time);
+            _holy_fire.transform.localScale = new Vector3(Mathf.PingPong(Time.deltaTime, 20f), 0, Mathf.PingPong(Time.deltaTime, 20f));
         }
-        else if (!flag_fire && (_holy_fire.transform.localScale != _start_fire_position.localScale))
-        {
-            _holy_fire.transform.localScale -= new Vector3(Time.deltaTime * speed_fire_time, 0, Time.deltaTime * speed_fire_time);
-        }
-
     }
 }

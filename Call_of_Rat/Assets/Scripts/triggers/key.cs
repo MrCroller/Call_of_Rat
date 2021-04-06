@@ -6,7 +6,7 @@ public class Key : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "trigger_hand")
+        if (other.CompareTag("trigger_hand"))
         {
             Debug.Log("take_key");
 

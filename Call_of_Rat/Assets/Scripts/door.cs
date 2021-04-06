@@ -20,8 +20,10 @@ public class Door : MonoBehaviour
     private Vector3 _openPosition_sash;
     private Quaternion _openPosition_door;
 
-    // Флаг для открытия двери
-    public bool button_flag = false;
+    /// <summary>
+    /// Флаг для открытия двери
+    /// </summary>
+    public bool flag_door_open = false;
 
     private void Start()
     {
@@ -34,7 +36,7 @@ public class Door : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (button_flag)
+        if (flag_door_open)
         {
             Open();
         }
@@ -43,7 +45,7 @@ public class Door : MonoBehaviour
     /// <summary>
     /// Метод открытия двери
     /// </summary>
-    public void Open()
+    private void Open()
     {
         // Снятие замка
         _lock.SetActive(false);
@@ -59,8 +61,13 @@ public class Door : MonoBehaviour
 
         if (_door.rotation == _openPosition_door)
         {
-            button_flag = false;
+            flag_door_open = false;
             Debug.Log("open");
         }
+    }
+
+    public void Open_door()
+    {
+        flag_door_open = true;
     }
 }
