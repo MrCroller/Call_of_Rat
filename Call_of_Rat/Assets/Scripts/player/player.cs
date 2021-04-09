@@ -41,7 +41,6 @@ public class Player : MonoBehaviour
     /// Скорость анимации выстрела
     /// </summary>
     public float speed_fire_time = 0.2f;
-    private readonly float _vector_f;
 
     private void Update()
     {

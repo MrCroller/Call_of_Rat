@@ -1,176 +1,147 @@
-using System.Threading.Tasks;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
+
 public class Rat_st : MonoBehaviour
 {
-    // Крыса на стуле
-    [SerializeField] public TextMeshPro text_mesh_st;
-
-    // Крыса слушатель 1
-    [SerializeField] public TextMeshPro text_mesh_listener1;
-
-    // Крыса слушатель 2
-    [SerializeField] public TextMeshPro text_mesh_listener2;
-
-    // Крыса слушатель 3
-    [SerializeField] public TextMeshPro text_mesh_listener3;
+    /// <summary>
+    /// Крысы для разговоров
+    /// </summary>
+    [SerializeField] public TextMeshPro[] text_mesh;
 
     /// <summary>
-    /// Паста
+    /// Имя файлов текста
     /// </summary>
-    public async void Pasta()
+    public List<string> fileColName;
+    /// <summary>
+    /// Текст
+    /// </summary>
+    private List<List<string>> textArray;
+    /// <summary>
+    /// Номер истории
+    /// </summary>
+    private int st_num = 0;
+
+    private void Awake()
     {
-        text_mesh_st.text = "Ребята, не стоит вскрывать эту тему";
-        await Task.Delay(3000);
-        text_mesh_st.text = "Вы молодые, шутливые, вам все легко";
-        await Task.Delay(3000);
-        text_mesh_st.text = "Это не то";
-        await Task.Delay(1500);
-        text_mesh_st.text = "Это не Чикатило и даже не архивы спецслужб";
-        await Task.Delay(3000);
-        text_mesh_st.text = "Сюда лучше не лезть";
-        await Task.Delay(2000);
-        text_mesh_st.text = "Серьезно, любой из вас будет жалеть";
-        await Task.Delay(3000);
-        text_mesh_st.text = "Лучше закроем эту тему и забудем, что тут говорилось";
-        await Task.Delay(3000);
-        text_mesh_st.text = "Я вполне понимаю, что данным сообщением вызову дополнительный интерес, но хочу сразу предостеречь пытливых - стоп";
-        await Task.Delay(5000);
-        text_mesh_st.text = "Остальные просто не найдут";
-        await Task.Delay(2400);
-        text_mesh_st.text = null;
-        await Task.Delay(3000);
-        Joke1();
+        textArray = new List<List<string>>();
+        TextPull(fileColName);
     }
 
     /// <summary>
-    /// Анекдот первый
+    /// Реализация события начала истории
     /// </summary>
-    public async void Joke1()
+    public void Startstory_Event()
     {
-        text_mesh_listener1.text = "Поймали Наёмники Сталкера, окунают его в воду и спрашивают:";
-        await Task.Delay(3000);
-        text_mesh_listener1.text = "- Деньги, бабло, артефакты есть?";
-        await Task.Delay(2000);
-        text_mesh_listener1.text = "Сталкер:";
-        await Task.Delay(1000);
-        text_mesh_listener1.text = "- Нет.";
-        await Task.Delay(1000);
-        text_mesh_listener1.text = "И опять окунают в воду и спрашивают:";
-        await Task.Delay(2400);
-        text_mesh_listener1.text = "- Деньги, бабло, артефакты есть?";
-        await Task.Delay(2000);
-        text_mesh_listener1.text = "Сталкер:";
-        await Task.Delay(1000);
-        text_mesh_listener1.text = "- Да нету, нету!";
-        await Task.Delay(2000);
-        text_mesh_listener1.text = "А они опять окунают :";
-        await Task.Delay(1800);
-        text_mesh_listener1.text = "- Деньги, бабло, артефакты есть?";
-        await Task.Delay(2000);
-        text_mesh_listener1.text = "Ну сталкер не выдержал:";
-        await Task.Delay(2000);
-        text_mesh_listener1.text = "- Блин, вы либо дольше держите, либо глубже опускайте ! Вода мутная - нихрена не видно!";
-        await Task.Delay(3700);
-        text_mesh_listener1.text = null;
-        await Task.Delay(3000);
-        React1();
+        StopAllCoroutines();
+        ST_Story_Method();
+    }
+
+    // Костыльный метод по правильной последовательности историй
+    private void ST_Story_Method()
+    {
+
+        if (st_num == 0)
+        {
+            StartCoroutine(Story(0, 0));
+        }
+
+        if (st_num == 1)
+        {
+            StopAllCoroutines();
+            StartCoroutine(Story(1, 1));
+        }
+        else if (st_num == 2)
+        {
+            StopAllCoroutines();
+            StartCoroutine(Story(2, 3));
+        }
+        else if (st_num == 3)
+        {
+            StopAllCoroutines();
+            StartCoroutine(Story(3, 3));
+        }
+        else if (st_num == 4)
+        {
+            StopAllCoroutines();
+            StartCoroutine(Story(4, 1));
+        }
+        else if (st_num == 5)
+        {
+            StopAllCoroutines();
+            StartCoroutine(Story(5, 3));
+        }
+        else if (st_num == 6)
+        {
+            StopAllCoroutines();
+            StartCoroutine(Story(6, 2));
+            st_num = 0;
+        }
+        st_num++;
     }
 
     /// <summary>
-    /// Анекдот второй
+    /// Рассказ
     /// </summary>
-    public async void Joke2()
+    /// <param name="story_num">Номер коллекции текста</param>
+    /// <param name="mesh_num">Номер текстового меша</param>
+    /// <returns></returns>
+    private IEnumerator Story(int story_num, int mesh_num)
     {
-        text_mesh_listener3.text = "Заблудился сталкер, идет кричит:";
-        await Task.Delay(2300);
-        text_mesh_listener3.text = "- ЛЮЮЮДИИИИ!!!! ААУУУ!!! ГДЕ ВЫЫЫЫ??!! ЭЙ КТО НИБУУУУУДЬ!!!! ААУУУУУ!!! ...";
-        await Task.Delay(3000);
-        text_mesh_listener3.text = "Вдруг сзади его стучат по плечу";
-        await Task.Delay(1700);
-        text_mesh_listener3.text = "Он оборачивается, а там здоровый такой кровосос, недовольный";
-        await Task.Delay(3200);
-        text_mesh_listener3.text = "Кровосос:";
-        await Task.Delay(1000);
-        text_mesh_listener3.text = "Ты чего орешь?!";
-        await Task.Delay(2000);
-        text_mesh_listener3.text = "Сталкер:";
-        await Task.Delay(1000);
-        text_mesh_listener3.text = "- Да вот того...  ";
-        await Task.Delay(2000);
-        text_mesh_listener3.text = "заблудился я...";
-        await Task.Delay(2000);
-        text_mesh_listener3.text = "думаю может услышит кто...";
-        await Task.Delay(2000);
-        text_mesh_listener3.text = "Кровосос:";
-        await Task.Delay(1000);
-        text_mesh_listener3.text = "- Ну я услышал, легче стало?";
-        await Task.Delay(3700);
-        text_mesh_listener3.text = null;
-        await Task.Delay(3000);
-        React2();
+        foreach (string text in textArray[story_num])
+        {
+            text_mesh[mesh_num].text = text;
+            yield return new WaitForSeconds(TextPouse(text));
+        }
+        ST_Story_Method();
     }
 
     /// <summary>
-    /// Анекдот третий
+    /// Метод определения паузы после текста
     /// </summary>
-    public async void Joke3()
+    /// <param name="s">Текст для определения паузы</param>
+    /// <returns></returns>
+    private float TextPouse(string s)
     {
-        text_mesh_listener3.text = "Идет Сталкер по Зоне";
-        await Task.Delay(2600);
-        text_mesh_listener3.text = "Видит Монстряка сидит плачет, гоькими слезами обливается";
-        await Task.Delay(3200);
-        text_mesh_listener3.text = "- Ты че плачешь, Монстряка? - спрашивает";
-        await Task.Delay(2440);
-        text_mesh_listener3.text = "- Все меня обижают, другие Монстряки обижают, Сталкеры обижают...";
-        await Task.Delay(3120);
-        text_mesh_listener3.text = "- А хочешь я тебе НАКУ дам?";
-        await Task.Delay(2470);
-        text_mesh_listener3.text = "- Хочу! - оживилась Монстряка";
-        await Task.Delay(2370);
-        text_mesh_listener3.text = "Сталкер, снимает автомат и прикладом:";
-        await Task.Delay(2630);
-        text_mesh_listener3.text = "- НАКА! НАКА! МОНСТРЯКА! ПОЛУЧИ! НАКА!!!";
-        await Task.Delay(3680);
-        text_mesh_listener3.text = null;
-        await Task.Delay(3000);
-        React3();
+        float pouse = s.Length * 0.100f; //Длительность паузы на букву
+        if (pouse < 1f)
+        {
+            return Random.Range(1f, 1.5f);
+        }
+
+        if (pouse > 4.5f)
+        {
+            return Random.Range(4.2f, 5f);
+        }
+        else
+        {
+            return pouse;
+        }
     }
 
     /// <summary>
-    /// Реакция первая
+    /// Заполнение коллекции строк из файла
     /// </summary>
-    public async void React1()
+    private List<string> FileReader(string fileName)
     {
-        text_mesh_listener3.text = "Ну ты дал, чертыла мля внатуре, хааа я отвечаю";
-        await Task.Delay(2400);
-        text_mesh_listener3.text = null;
-        await Task.Delay(3000);
-        Joke2();
+        string readFromFilePatch = Application.streamingAssetsPath + "/Text/" + fileName + ".txt";
+        List<string> fileLines = File.ReadAllLines(readFromFilePatch).ToList();
+        return fileLines;
     }
 
     /// <summary>
-    /// Реакция вторая
+    /// Заполнение коллекций текста
     /// </summary>
-    public async void React2()
+    private void TextPull(List<string> filesName)
     {
-        text_mesh_listener1.text = "Ну ты выдал";
-        await Task.Delay(2400);
-        text_mesh_listener1.text = null;
-        await Task.Delay(3000);
-        Joke3();
-    }
 
-    /// <summary>
-    /// Реакция третья
-    /// </summary>
-    public async void React3()
-    {
-        text_mesh_listener2.text = "Так не смешно же";
-        await Task.Delay(2400);
-        text_mesh_listener2.text = null;
-        await Task.Delay(3000);
-        Joke1();
+        foreach (string f_name in filesName)
+        {
+            textArray.Add(FileReader(f_name));
+        }
     }
 }

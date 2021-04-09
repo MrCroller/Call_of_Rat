@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Player_controller : MonoBehaviour
 {
@@ -14,8 +13,6 @@ public class Player_controller : MonoBehaviour
     }
 
     public SpeedState speedStatus;
-
-    public UnityEvent speedState_Event;
 
     [SerializeField] private float _speed = 3f;
     private Vector3 _direction;
@@ -51,6 +48,7 @@ public class Player_controller : MonoBehaviour
     private void Start()
     {
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void Update()
@@ -104,14 +102,12 @@ public class Player_controller : MonoBehaviour
         {
             _speed -= stealth_value;
             speedStatus = SpeedState.Stealth;
-            speedState_Event?.Invoke();
         }
 
         if (Input.GetKeyUp(KeyCode.LeftControl))
         {
             _speed += stealth_value;
             speedStatus = SpeedState.Normal;
-            speedState_Event?.Invoke();
         }
     }
 

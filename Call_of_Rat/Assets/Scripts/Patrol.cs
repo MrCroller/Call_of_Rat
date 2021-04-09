@@ -16,12 +16,14 @@ public class Patrol : MonoBehaviour
     /// <summary>
     /// Корутина следования за игроком
     /// </summary>
-    private Coroutine _coroutine_target_player;
+    private readonly Coroutine _coroutine_target_player;
 
     /// <summary>
     /// Зрение
     /// </summary>
     private CapsuleCollider _vision;
+
+    private Animator _animator;
 
     /// <summary>
     /// Позиция игрока
@@ -37,20 +39,17 @@ public class Patrol : MonoBehaviour
     /// <summary>
     /// Минимальная дистанция до точки патрулирования
     /// </summary>
-    private float _minDistance_point = 1.3f;
+    private readonly float _minDistance_point = 1.3f;
     /// <summary>
     /// Минимальная дистанция для прыжка на игрока
     /// </summary>
-    private float _minDistance_player = 3.7f;
-    /// <summary>
-    /// Скорость прыжка
-    /// </summary>
-    private float _speed_jump = 10f;
+    private readonly float _minDistance_player = 3.7f;
 
     private Rigidbody _rigidbody;
 
     private void Awake()
     {
+        _animator = GetComponent<Animator>();
         _navMesh = GetComponent<NavMeshAgent>();
         _vision = GetComponent<CapsuleCollider>();
         _rigidbody = GetComponent<Rigidbody>();
@@ -59,7 +58,7 @@ public class Patrol : MonoBehaviour
     private void Start()
     {
         _randomSpot = Random.Range(0, _walk_points.Length);
-        
+
         _coroutine_target_point = StartCoroutine(PointWalk());
     }
 
@@ -113,6 +112,7 @@ public class Patrol : MonoBehaviour
     /// </summary>
     private IEnumerator PointWalk()
     {
+        _navMesh.speed = 1.8f; // Скорость патрулирования
         while (true)
         {
             Walk(_walk_points[_randomSpot]);
@@ -131,6 +131,7 @@ public class Patrol : MonoBehaviour
     /// </summary>
     private void VisiblePlayer()
     {
+        _navMesh.speed = 3f; // Скорость преследования игрока;
         StopAllCoroutines();
         Walk(player);
         if (Vector3.Distance(transform.position, player.position) < _minDistance_player)
@@ -145,14 +146,16 @@ public class Patrol : MonoBehaviour
     /// <returns></returns>
     private IEnumerator LoseSight()
     {
-        for (float i = 0; i < 7f; i += Time.deltaTime)
+        for (float i = 0; i < 12f; i += Time.deltaTime) // Таймер для отсчет
         {
             yield return null;
             Walk(player);
         }
-        // здесь по идее крыса должна остановиться и оглядываться в поиске,
-        // но почему то пауза не работает
-        yield return new WaitForSeconds(startWaitTime);
+        // Пауза после потери игрока
+        yield return new WaitForSeconds(10f);
+        _animator.SetBool("lose", true);
+        yield return new WaitForSeconds(3f);
+        _animator.SetBool("lose", false);
         StartCoroutine(PointWalk());
     }
 
@@ -173,7 +176,7 @@ public class Patrol : MonoBehaviour
         transform.LookAt(player);
         StopAllCoroutines();
 
-        //прыжок на игрока
+        _animator.SetBool("Jump", true);
 
     }
 }

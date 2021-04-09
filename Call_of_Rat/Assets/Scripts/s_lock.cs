@@ -9,9 +9,9 @@ public class S_lock : MonoBehaviour
     /// </summary>
     [SerializeField] private GameObject _plight;
     /// <summary>
-    /// Событие открытия двери
+    /// Ссылка на аниматор двери
     /// </summary>
-    public UnityEvent open;
+    public Animator door;
     /// <summary>
     /// Кол-во активированных ключей
     /// </summary>
@@ -33,7 +33,7 @@ public class S_lock : MonoBehaviour
 
                 if (key_count == 5)
                 {
-                    open?.Invoke();
+                    door.SetBool("Open", true);
                 }
             }
         }

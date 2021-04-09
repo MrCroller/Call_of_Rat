@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
 public class Rat_maze : MonoBehaviour
 {
-    [SerializeField] public TextMeshPro text_mesh_ratmaze;
+    public TextMeshPro _text_mesh;
     [SerializeField] public Transform text_rot;
     /// <summary>
     /// Цель для поворота
@@ -13,22 +15,22 @@ public class Rat_maze : MonoBehaviour
     [SerializeField] private Transform _target;
 
     /// <summary>
+    /// Имя файлов текста
+    /// </summary>
+    public List<string> fileName;
+
+    /// <summary>
     /// Начальный текст при встрече
     /// </summary>
-    private List<string> startStory_text;
+    private List<string> textArray;
 
     private void Awake()
     {
-        startStory_text = new List<string>()
+        for (int i = 0; i < fileName.Count; i++)
         {
-            "Как же я ненавижу лабиринты",
-            "Сколько я уже здесь?",
-            "Наверное дома сейчас тепло и уютно",
-            "А говорили мне стать программистом",
-            "Блин, сыра хочется",
-            "Может прогрызть туннель напрямую?",
-        };
-
+            textArray = FileReader(fileName[i]);
+            textArray.Add("\n");
+        }
     }
 
     private void FixedUpdate()
@@ -52,12 +54,12 @@ public class Rat_maze : MonoBehaviour
     {
         while (true)
         {
-            foreach (string s in startStory_text)
+            foreach (string s in textArray)
             {
                 yield return new WaitForSeconds(Random.Range(3f, 3.5f));
-                text_mesh_ratmaze.text = "";
+                _text_mesh.text = "";
                 yield return new WaitForSeconds(Random.Range(3f, 4f));
-                text_mesh_ratmaze.text = s;
+                _text_mesh.text = s;
             }
         }
     }
@@ -70,5 +72,15 @@ public class Rat_maze : MonoBehaviour
         Vector3 dir = _target.position - transform.position;
         Vector3 newDir = Vector3.RotateTowards(transform.forward, dir, 6, 0);
         text_rot.rotation = Quaternion.LookRotation(-newDir);
+    }
+
+    /// <summary>
+    /// Заполнение списка из файла
+    /// </summary>
+    private List<string> FileReader(string fileName)
+    {
+        string readFromFilePatch = Application.streamingAssetsPath + "/Text/" + fileName + ".txt";
+        List<string> fileLines = File.ReadAllLines(readFromFilePatch).ToList();
+        return fileLines;
     }
 }
