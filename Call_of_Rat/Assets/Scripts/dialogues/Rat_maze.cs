@@ -58,8 +58,11 @@ public class Rat_maze : MonoBehaviour
             {
                 yield return new WaitForSeconds(Random.Range(3f, 3.5f));
                 _text_mesh.text = "";
-                yield return new WaitForSeconds(Random.Range(3f, 4f));
-                _text_mesh.text = s;
+                foreach (char letter in s.ToCharArray())
+                {
+                    _text_mesh.text += letter;
+                    yield return new WaitForFixedUpdate();
+                }
             }
         }
     }

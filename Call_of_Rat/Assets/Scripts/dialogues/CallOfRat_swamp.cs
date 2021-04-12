@@ -71,7 +71,12 @@ public class CallOfRat_swamp : MonoBehaviour
         int i = 0;
         foreach (string text in textArray[story_num])
         {
-            text_mesh[rat_num[i]].text = text;
+            text_mesh[rat_num[i]].text = "";
+            foreach (char letter in text.ToCharArray())
+            {
+                text_mesh[rat_num[i]].text += letter;
+                yield return new WaitForFixedUpdate();
+            }
             yield return new WaitForSeconds(TextPouse(text));
             text_mesh[rat_num[i]].text = null;
             i++;

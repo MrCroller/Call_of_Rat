@@ -1,20 +1,17 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Censer : MonoBehaviour
 {
-    /// <summary>
-    /// Скорость анимации
-    /// </summary>
-    public float speed_an;
-    [SerializeField] private Player _player;
     [SerializeField] private GameObject _censer;
-    public bool take_go = false;
+    public UnityEvent take;
+    public bool flag = true;
 
-    private void Update()
+    private void OnTriggerEnter(Collider col)
     {
-        if (!take_go)
+        if (col.CompareTag("Player") && flag)
         {
-            transform.RotateAround(transform.position, new Vector3(0, 1, 0), speed_an * Time.deltaTime);
+            Take();
         }
     }
 
@@ -24,8 +21,7 @@ public class Censer : MonoBehaviour
     public void Take()
     {
         Debug.Log("Take_censer");
-        take_go = true;
-        _player.flag_take_censer = true;
+        take?.Invoke();
         _censer.SetActive(false);
     }
 }

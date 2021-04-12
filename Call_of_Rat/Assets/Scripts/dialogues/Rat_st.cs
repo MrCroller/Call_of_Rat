@@ -94,7 +94,12 @@ public class Rat_st : MonoBehaviour
     {
         foreach (string text in textArray[story_num])
         {
-            text_mesh[mesh_num].text = text;
+            text_mesh[story_num].text = "";
+            foreach (char letter in text.ToCharArray())
+            {
+                text_mesh[story_num].text += letter;
+                yield return new WaitForFixedUpdate();
+            }
             yield return new WaitForSeconds(TextPouse(text));
         }
         ST_Story_Method();

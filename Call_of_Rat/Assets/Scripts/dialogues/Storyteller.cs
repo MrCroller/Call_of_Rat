@@ -83,7 +83,12 @@ public class Storyteller : MonoBehaviour
     {
         foreach (string text in textArray[i])
         {
-            text_mesh.text = text;
+            text_mesh.text = "";
+            foreach(char letter in text.ToCharArray())
+            {
+                text_mesh.text += letter;
+                yield return new WaitForFixedUpdate();
+            }
             yield return new WaitForSeconds(TextPouse(text));
         }
     }
