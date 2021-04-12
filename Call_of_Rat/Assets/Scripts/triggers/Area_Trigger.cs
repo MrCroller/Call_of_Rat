@@ -9,7 +9,6 @@ public class Area_Trigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        //Debug.Log("area_exitstartroom_trigger");
         if (col.CompareTag("Player") && flag)
         {
             flag = false;
