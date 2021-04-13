@@ -18,9 +18,13 @@ public class Censer_Player : MonoBehaviour
     /// </summary>
     [SerializeField] private GameObject _chains;
     /// <summary>
-    /// Ёффекты зар€женного кадила
+    /// Ёффекты зар€женного кадила (паритклы)
     /// </summary>
     [SerializeField] private GameObject _particle;
+    /// <summary>
+    /// Ёффекты зар€женного кадила (свет)
+    /// </summary>
+    [SerializeField] private GameObject _pointlight;
     /// <summary>
     /// —в€щенный огонь (выстрел)
     /// </summary>
@@ -30,6 +34,10 @@ public class Censer_Player : MonoBehaviour
     /// —обытие дл€ активации UI эффекта огн€
     /// </summary>
     public UnityEvent UIFire;
+    /// <summary> 
+    /// —обытие дл€ UI таймера перезар€дки 
+    /// </summary> 
+    public UnityEvent UITimerReload;
     /// <summary>
     /// јниматор игрока
     /// </summary>
@@ -42,7 +50,7 @@ public class Censer_Player : MonoBehaviour
     /// <summary>
     /// ‘лаг вз€ти€ оружи€
     /// </summary>
-    public bool _flag_take_censer = false;
+    public bool flag_take_censer = false;
     /// <summary>
     /// ‘лаг перезар€женного кадила
     /// </summary>
@@ -70,7 +78,7 @@ public class Censer_Player : MonoBehaviour
 
     private void Update()
     {
-        if (_flag_take_censer)
+        if (flag_take_censer)
         {
             Censer_Active();
             Fare();
@@ -80,7 +88,7 @@ public class Censer_Player : MonoBehaviour
 
     public void Take_Censer()
     {
-        _flag_take_censer = true;
+        flag_take_censer = true;
     }
 
     /// <summary>
@@ -115,7 +123,10 @@ public class Censer_Player : MonoBehaviour
             {
                 _holy_fire.SetActive(false);
                 flag_reload = false;
+                //¬ыключение света и эффектов у оружи€
+                _pointlight.SetActive(false); 
                 _particle.SetActive(false);
+
                 UIFire?.Invoke();
                 timer = time_holyfire;
             }
@@ -135,6 +146,7 @@ public class Censer_Player : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
+                UITimerReload?.Invoke();
                 _anim_pl.SetTrigger("Reload");
                 mirrh_count--;
             }
@@ -146,7 +158,11 @@ public class Censer_Player : MonoBehaviour
     /// </summary>
     public void Reload_End()
     {
+        UITimerReload?.Invoke();
+        //¬ключение света и эффектов у оружи€
+        _pointlight.SetActive(true);
         _particle.SetActive(true);
+
         flag_reload = true;
     }
 }

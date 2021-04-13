@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\player\Player.cs" />
+    <Compile Include="Assets\UI\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\dialogues\Storyteller.cs" />
     <Compile Include="Assets\Scripts\dialogues\CallOfRat_swamp.cs" />
     <Compile Include="Assets\Scripts\S_lock.cs" />
@@ -64,13 +65,13 @@
     <Compile Include="Assets\Scripts\Door.cs" />
     <Compile Include="Assets\Scripts\Rat_Animator.cs" />
     <Compile Include="Assets\Scripts\triggers\Key.cs" />
+    <Compile Include="Assets\Scripts\player\Censer_Player.cs" />
     <Compile Include="Assets\Scripts\triggers\Area_Trigger.cs" />
     <Compile Include="Assets\Scripts\Censer.cs" />
     <Compile Include="Assets\Scripts\triggers\Hand_Trigger.cs" />
     <Compile Include="Assets\Scripts\player\Player_controller.cs" />
     <Compile Include="Assets\Scripts\dialogues\Rat_st.cs" />
     <Compile Include="Assets\Scripts\Patrol.cs" />
-    <Compile Include="Assets\Scripts\player\Censer_Player.cs" />
     <Compile Include="Assets\UI\Scripts\Weapon_UI.cs" />
   </ItemGroup>
   <ItemGroup>

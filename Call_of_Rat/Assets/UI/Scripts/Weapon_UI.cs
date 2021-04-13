@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,35 +6,49 @@ using UnityEngine.UI;
 public class Weapon_UI : MonoBehaviour
 {
     /// <summary>
-    /// ������ ���������� 
+    /// Таймер активности 
     /// </summary>
     public Image timer_r;
     /// <summary>
-    /// ������ ������ ������
+    /// Изображение ладана
+    /// </summary>
+    public Image mirrh_image;
+    /// <summary>
+    /// Скрипт оружия игрока
     /// </summary>
     public Censer_Player censer;
     /// <summary>
-    /// UI �������� ������
+    /// UI элементы оружия
     /// </summary>
     public GameObject ui;
     /// <summary>
-    /// �������� ������� ����
+    /// Партиклы эффекта огня
     /// </summary>
     public GameObject fire;
-    /// <summary>
-    /// ����������� ������
-    /// </summary>
-    public Image mirrh_image;
+
+    /// <summary> 
+    /// Флаг перезарядки таймера
+    /// </summary> 
+    private bool flag_reload_UI = false;
 
     private void Update()
     {
-        timer_r.fillAmount = censer.timer / 10f;
-        if (censer._flag_take_censer && gameObject.activeSelf) ui.SetActive(true);
-        if (censer.flag_reload && mirrh_image.fillAmount < 1f) mirrh_image.fillAmount = 1f;
+        if (censer.flag_take_censer)
+        {
+            // Активация UI оружия 
+            if (!ui.activeSelf) ui.SetActive(true);
+
+            // Таймер длительности горения
+            if (censer.flag_reload) timer_r.fillAmount = censer.timer / 10f;
+            // Активация изображение ладана после перезарядки 
+            if (censer.flag_reload && mirrh_image.fillAmount < 1f) mirrh_image.fillAmount = 1f;
+            // Анимация таймера для перезарядки (таймер выставлен с расчетом на 3 секунды анимации) 
+            if (!censer.flag_reload && flag_reload_UI) timer_r.fillAmount += Time.deltaTime * 0.25f;
+        }
     }
 
     /// <summary>
-    /// UI ��������� ������� ����
+    /// UI Активация эффекта огня
     /// </summary>
     public void Fire_UI()
     {
@@ -49,5 +63,13 @@ public class Weapon_UI : MonoBehaviour
             mirrh_image.fillAmount = 0f;
             fire.SetActive(false);
         }
+    }
+
+    /// <summary> 
+    /// UI переключатель таймера перезарядки 
+    /// </summary> 
+    public void Timer_Reload()
+    {
+        flag_reload_UI = !flag_reload_UI;
     }
 }
