@@ -45,6 +45,8 @@ public class Patrol : MonoBehaviour
     /// </summary>
     private readonly float _minDistance_player = 3.7f;
 
+    private bool flag_firedeath = false;
+
     private Rigidbody _rigidbody;
 
     private void Awake()
@@ -65,7 +67,15 @@ public class Patrol : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Fire") && !flag_firedeath) // При поражении огнем
+        {
+            flag_firedeath = true;
+            Debug.Log("Death");
+            StopAllCoroutines();
+            _animator.SetTrigger("Death");
+        }
+
+        if (other.CompareTag("Player") && !flag_firedeath) // При виде игрока
         {
             Debug.Log("Папався!");
             VisiblePlayer();
@@ -74,7 +84,8 @@ public class Patrol : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+
+        if (other.CompareTag("Player") && !flag_firedeath)
         {
             Debug.Log("Куда же ты?");
             StartCoroutine(LoseSight());
@@ -119,6 +130,7 @@ public class Patrol : MonoBehaviour
 
             if (Vector3.Distance(transform.position, _walk_points[_randomSpot].position) < _minDistance_point)
             {
+                if (_animator.GetBool("walk")) _animator.SetBool("walk", false);
                 yield return new WaitForSeconds(startWaitTime);
                 _randomSpot = Random.Range(0, _walk_points.Length);
             }
@@ -165,6 +177,7 @@ public class Patrol : MonoBehaviour
     /// <param name="target"></param>
     private void Walk(Transform walk_point)
     {
+        if(!_animator.GetBool("walk")) _animator.SetBool("walk", true);
         _navMesh.SetDestination(walk_point.position);
     }
 
@@ -178,5 +191,12 @@ public class Patrol : MonoBehaviour
 
         _animator.SetBool("Jump", true);
 
+    }
+
+    // Смерть крысы. Это временный вариант, лучше что бы они разбегались
+
+    public void Death()
+    {
+        gameObject.SetActive(false);
     }
 }

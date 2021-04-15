@@ -29,6 +29,10 @@ public class Censer_Player : MonoBehaviour
     /// Священный огонь (выстрел)
     /// </summary>
     [SerializeField] private GameObject _holy_fire;
+    /// <summary>
+    /// Физика оружия
+    /// </summary>
+    private Rigidbody _censer_rb;
 
     /// <summary>
     /// Событие для активации UI эффекта огня
@@ -68,6 +72,7 @@ public class Censer_Player : MonoBehaviour
 
     private void Awake()
     {
+        _censer_rb = _censer.GetComponent<Rigidbody>();
         _anim_pl = gameObject.GetComponent<Animator>();
     }
 
@@ -148,6 +153,7 @@ public class Censer_Player : MonoBehaviour
             {
                 UITimerReload?.Invoke();
                 _anim_pl.SetTrigger("Reload");
+                _censer_rb.isKinematic = false;
                 mirrh_count--;
             }
         }
@@ -164,5 +170,13 @@ public class Censer_Player : MonoBehaviour
         _particle.SetActive(true);
 
         flag_reload = true;
+    }
+
+    /// <summary>
+    /// Отключение физики оружия
+    /// </summary>
+    public void PhysicsOff()
+    {
+        _censer_rb.isKinematic = true;
     }
 }
