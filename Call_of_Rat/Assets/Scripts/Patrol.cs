@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class Patrol : MonoBehaviour
 {
@@ -24,6 +25,27 @@ public class Patrol : MonoBehaviour
     private CapsuleCollider _vision;
 
     private Animator _animator;
+    /// <summary>
+    /// Событие смерти игрока
+    /// </summary>
+    public UnityEvent player_death;
+    #region EventsC#
+    /*
+    /// <summary>
+    /// Событие смерти игрока
+    /// </summary>
+    public delegate void Jump();
+    public event Jump player_death;
+    /// <summary>
+    /// Скрипт интерфеса игры
+    /// </summary>
+    private Weapon_UI _weapon_ui;
+    /// <summary>
+    /// Скрипт игрока
+    /// </summary>
+    private Player _player_cs;
+    */
+    #endregion
 
     /// <summary>
     /// Позиция игрока
@@ -55,6 +77,13 @@ public class Patrol : MonoBehaviour
         _navMesh = GetComponent<NavMeshAgent>();
         _vision = GetComponent<CapsuleCollider>();
         _rigidbody = GetComponent<Rigidbody>();
+
+        #region EventsC#
+        // ошибка: value does not fall within the expected range
+
+        //player_death += _player_cs.Death;
+        //player_death += _weapon_ui.Player_Death;
+        #endregion
     }
 
     private void Start()
@@ -63,7 +92,6 @@ public class Patrol : MonoBehaviour
 
         _coroutine_target_point = StartCoroutine(PointWalk());
     }
-
 
     private void OnTriggerStay(Collider other)
     {
@@ -164,10 +192,10 @@ public class Patrol : MonoBehaviour
             Walk(player);
         }
         // Пауза после потери игрока
-        yield return new WaitForSeconds(10f);
         _animator.SetBool("lose", true);
         yield return new WaitForSeconds(3f);
         _animator.SetBool("lose", false);
+        yield return new WaitForSeconds(3f);
         StartCoroutine(PointWalk());
     }
 
@@ -198,5 +226,10 @@ public class Patrol : MonoBehaviour
     public void Death()
     {
         gameObject.SetActive(false);
+    }
+
+    public void JumpFinish()
+    {
+        player_death?.Invoke();
     }
 }

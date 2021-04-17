@@ -26,10 +26,21 @@ public class Weapon_UI : MonoBehaviour
     /// </summary>
     public GameObject fire;
 
+    public Text mirh_countTXT;
+    /// <summary>
+    /// Кол-во ладана
+    /// </summary>
+    private int mirh;
+
     /// <summary> 
     /// Флаг перезарядки таймера
     /// </summary> 
     private bool flag_reload_UI = false;
+
+    private void Awake()
+    {
+        
+    }
 
     private void Update()
     {
@@ -44,6 +55,8 @@ public class Weapon_UI : MonoBehaviour
             if (censer.flag_reload && mirrh_image.fillAmount < 1f) mirrh_image.fillAmount = 1f;
             // Анимация таймера для перезарядки (таймер выставлен с расчетом на 3 секунды анимации) 
             if (!censer.flag_reload && flag_reload_UI) timer_r.fillAmount += Time.deltaTime * 0.25f;
+
+            mirh_countTXT.text = $"{censer.mirrh_count}X";
         }
     }
 
