@@ -18,18 +18,30 @@ public class Censer_Player : MonoBehaviour
     /// </summary>
     [SerializeField] private GameObject _chains;
     /// <summary>
-    /// Эффекты заряженного кадила
+    /// Эффекты заряженного кадила (паритклы)
     /// </summary>
     [SerializeField] private GameObject _particle;
+    /// <summary>
+    /// Эффекты заряженного кадила (свет)
+    /// </summary>
+    [SerializeField] private GameObject _pointlight;
     /// <summary>
     /// Священный огонь (выстрел)
     /// </summary>
     [SerializeField] private GameObject _holy_fire;
+    /// <summary>
+    /// Физика оружия
+    /// </summary>
+    private Rigidbody _censer_rb;
 
     /// <summary>
     /// Событие для активации UI эффекта огня
     /// </summary>
     public UnityEvent UIFire;
+    /// <summary> 
+    /// Событие для UI таймера перезарядки 
+    /// </summary> 
+    public UnityEvent UITimerReload;
     /// <summary>
     /// Аниматор игрока
     /// </summary>
@@ -42,7 +54,7 @@ public class Censer_Player : MonoBehaviour
     /// <summary>
     /// Флаг взятия оружия
     /// </summary>
-    public bool _flag_take_censer = false;
+    public bool flag_take_censer = false;
     /// <summary>
     /// Флаг перезаряженного кадила
     /// </summary>
@@ -60,6 +72,7 @@ public class Censer_Player : MonoBehaviour
 
     private void Awake()
     {
+        _censer_rb = _censer.GetComponent<Rigidbody>();
         _anim_pl = gameObject.GetComponent<Animator>();
     }
 
@@ -70,7 +83,7 @@ public class Censer_Player : MonoBehaviour
 
     private void Update()
     {
-        if (_flag_take_censer)
+        if (flag_take_censer)
         {
             Censer_Active();
             Fare();
@@ -80,7 +93,7 @@ public class Censer_Player : MonoBehaviour
 
     public void Take_Censer()
     {
-        _flag_take_censer = true;
+        flag_take_censer = true;
     }
 
     /// <summary>
@@ -115,7 +128,10 @@ public class Censer_Player : MonoBehaviour
             {
                 _holy_fire.SetActive(false);
                 flag_reload = false;
+                //Выключение света и эффектов у оружия
+                _pointlight.SetActive(false); 
                 _particle.SetActive(false);
+
                 UIFire?.Invoke();
                 timer = time_holyfire;
             }
@@ -135,7 +151,9 @@ public class Censer_Player : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
+                UITimerReload?.Invoke();
                 _anim_pl.SetTrigger("Reload");
+                _censer_rb.isKinematic = false;
                 mirrh_count--;
             }
         }
@@ -146,7 +164,19 @@ public class Censer_Player : MonoBehaviour
     /// </summary>
     public void Reload_End()
     {
+        UITimerReload?.Invoke();
+        //Включение света и эффектов у оружия
+        _pointlight.SetActive(true);
         _particle.SetActive(true);
+
         flag_reload = true;
+    }
+
+    /// <summary>
+    /// Отключение физики оружия
+    /// </summary>
+    public void PhysicsOff()
+    {
+        _censer_rb.isKinematic = true;
     }
 }

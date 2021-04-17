@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class Patrol : MonoBehaviour
 {
@@ -24,6 +25,27 @@ public class Patrol : MonoBehaviour
     private CapsuleCollider _vision;
 
     private Animator _animator;
+    /// <summary>
+    /// Событие смерти игрока
+    /// </summary>
+    public UnityEvent player_death;
+    #region EventsC#
+    /*
+    /// <summary>
+    /// Событие смерти игрока
+    /// </summary>
+    public delegate void Jump();
+    public event Jump player_death;
+    /// <summary>
+    /// Скрипт интерфеса игры
+    /// </summary>
+    private Weapon_UI _weapon_ui;
+    /// <summary>
+    /// Скрипт игрока
+    /// </summary>
+    private Player _player_cs;
+    */
+    #endregion
 
     /// <summary>
     /// Позиция игрока
@@ -45,6 +67,8 @@ public class Patrol : MonoBehaviour
     /// </summary>
     private readonly float _minDistance_player = 3.7f;
 
+    private bool flag_firedeath = false;
+
     private Rigidbody _rigidbody;
 
     private void Awake()
@@ -53,6 +77,13 @@ public class Patrol : MonoBehaviour
         _navMesh = GetComponent<NavMeshAgent>();
         _vision = GetComponent<CapsuleCollider>();
         _rigidbody = GetComponent<Rigidbody>();
+
+        #region EventsC#
+        // ошибка: value does not fall within the expected range
+
+        //player_death += _player_cs.Death;
+        //player_death += _weapon_ui.Player_Death;
+        #endregion
     }
 
     private void Start()
@@ -62,10 +93,17 @@ public class Patrol : MonoBehaviour
         _coroutine_target_point = StartCoroutine(PointWalk());
     }
 
-
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Fire") && !flag_firedeath) // При поражении огнем
+        {
+            flag_firedeath = true;
+            Debug.Log("Death");
+            StopAllCoroutines();
+            _animator.SetTrigger("Death");
+        }
+
+        if (other.CompareTag("Player") && !flag_firedeath) // При виде игрока
         {
             Debug.Log("Папався!");
             VisiblePlayer();
@@ -74,7 +112,8 @@ public class Patrol : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+
+        if (other.CompareTag("Player") && !flag_firedeath)
         {
             Debug.Log("Куда же ты?");
             StartCoroutine(LoseSight());
@@ -119,6 +158,7 @@ public class Patrol : MonoBehaviour
 
             if (Vector3.Distance(transform.position, _walk_points[_randomSpot].position) < _minDistance_point)
             {
+                if (_animator.GetBool("walk")) _animator.SetBool("walk", false);
                 yield return new WaitForSeconds(startWaitTime);
                 _randomSpot = Random.Range(0, _walk_points.Length);
             }
@@ -152,10 +192,10 @@ public class Patrol : MonoBehaviour
             Walk(player);
         }
         // Пауза после потери игрока
-        yield return new WaitForSeconds(10f);
         _animator.SetBool("lose", true);
         yield return new WaitForSeconds(3f);
         _animator.SetBool("lose", false);
+        yield return new WaitForSeconds(3f);
         StartCoroutine(PointWalk());
     }
 
@@ -165,6 +205,7 @@ public class Patrol : MonoBehaviour
     /// <param name="target"></param>
     private void Walk(Transform walk_point)
     {
+        if(!_animator.GetBool("walk")) _animator.SetBool("walk", true);
         _navMesh.SetDestination(walk_point.position);
     }
 
@@ -178,5 +219,17 @@ public class Patrol : MonoBehaviour
 
         _animator.SetBool("Jump", true);
 
+    }
+
+    // Смерть крысы. Это временный вариант, лучше что бы они разбегались
+
+    public void Death()
+    {
+        gameObject.SetActive(false);
+    }
+
+    public void JumpFinish()
+    {
+        player_death?.Invoke();
     }
 }
