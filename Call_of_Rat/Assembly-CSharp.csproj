@@ -73,6 +73,8 @@
     <Compile Include="Assets\Scripts\dialogues\Rat_st.cs" />
     <Compile Include="Assets\Scripts\Patrol.cs" />
     <Compile Include="Assets\UI\Scripts\Weapon_UI.cs" />
+    <Compile Include="Assets\Scripts\ReverbZone.cs" />
+    <Compile Include="Assets\Scripts\triggers\Mirrh.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -50,7 +50,7 @@ public class Weapon_UI : MonoBehaviour
             if (!ui.activeSelf) ui.SetActive(true);
 
             // Таймер длительности горения
-            if (censer.flag_reload) timer_r.fillAmount = censer.timer / 10f;
+            if (censer.timer > 0) timer_r.fillAmount = censer.timer / censer.time_holyfire;
             // Активация изображение ладана после перезарядки 
             if (censer.flag_reload && mirrh_image.fillAmount < 1f) mirrh_image.fillAmount = 1f;
             // Анимация таймера для перезарядки (таймер выставлен с расчетом на 3 секунды анимации) 

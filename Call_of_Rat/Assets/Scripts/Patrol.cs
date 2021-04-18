@@ -65,18 +65,18 @@ public class Patrol : MonoBehaviour
     /// <summary>
     /// Минимальная дистанция для прыжка на игрока
     /// </summary>
-    private readonly float _minDistance_player = 3.7f;
+    private readonly float _minDistance_player = 2.5f;
 
     private bool flag_firedeath = false;
 
-    private Rigidbody _rigidbody;
+    private AudioSource _audio_walk;
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
         _navMesh = GetComponent<NavMeshAgent>();
         _vision = GetComponent<CapsuleCollider>();
-        _rigidbody = GetComponent<Rigidbody>();
+        _audio_walk = GetComponent<AudioSource>();
 
         #region EventsC#
         // ошибка: value does not fall within the expected range
@@ -158,7 +158,11 @@ public class Patrol : MonoBehaviour
 
             if (Vector3.Distance(transform.position, _walk_points[_randomSpot].position) < _minDistance_point)
             {
-                if (_animator.GetBool("walk")) _animator.SetBool("walk", false);
+                if (_animator.GetBool("walk"))
+                {
+                    _audio_walk.Pause();
+                    _animator.SetBool("walk", false);
+                }
                 yield return new WaitForSeconds(startWaitTime);
                 _randomSpot = Random.Range(0, _walk_points.Length);
             }
@@ -205,7 +209,11 @@ public class Patrol : MonoBehaviour
     /// <param name="target"></param>
     private void Walk(Transform walk_point)
     {
-        if(!_animator.GetBool("walk")) _animator.SetBool("walk", true);
+        if (!_animator.GetBool("walk"))
+        {
+            _audio_walk.Play();
+            _animator.SetBool("walk", true);
+        } 
         _navMesh.SetDestination(walk_point.position);
     }
 
