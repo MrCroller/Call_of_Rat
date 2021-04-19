@@ -5,7 +5,9 @@ public class Censer : MonoBehaviour
 {
     [SerializeField] private GameObject _censer;
     public UnityEvent take;
-    //public bool flag = true;
+    /// <summary>
+    /// Звук взятия предмета
+    /// </summary>
     public AudioSource audio_s;
 
     private void OnTriggerEnter(Collider col)

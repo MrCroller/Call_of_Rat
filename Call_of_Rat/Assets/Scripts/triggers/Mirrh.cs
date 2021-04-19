@@ -6,6 +6,10 @@ using UnityEngine.Events;
 public class Mirrh : MonoBehaviour
 {
     public UnityEvent take;
+    /// <summary>
+    /// Звук взятия предмета
+    /// </summary>
+    public AudioSource audio_s;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -13,6 +17,7 @@ public class Mirrh : MonoBehaviour
         {
             Debug.Log("take_mirrh");
 
+            audio_s?.Play();
             gameObject.SetActive(false);
             take?.Invoke();
         }

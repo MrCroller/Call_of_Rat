@@ -120,25 +120,29 @@ public class Patrol : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        VisionSet();
+    }
+
     /// <summary>
     /// Установка величины зрения
     /// </summary>
-    public void VisionSet(Player_controller.SpeedState speed_st)
+    public void VisionSet()
     {
-        // знать бы как обращаться ко всем владельцам этого скрипта сразу
-        if (speed_st == Player_controller.SpeedState.Normal)
+        if (Player_controller.speedStatus == Player_controller.SpeedState.Normal)
         {
             // нормальное зрение
             _vision.radius = 1.27f;
             _vision.height = 3.7f;
         }
-        else if (speed_st == Player_controller.SpeedState.Sprint)
+        else if (Player_controller.speedStatus == Player_controller.SpeedState.Sprint)
         {
             // увеличенное зрение
             _vision.radius = 2f;
             _vision.height = 6.23f;
         }
-        else if (speed_st == Player_controller.SpeedState.Stealth)
+        else if (Player_controller.speedStatus == Player_controller.SpeedState.Stealth)
         {
             // уменьшеное зрение
             _vision.radius = 1f;

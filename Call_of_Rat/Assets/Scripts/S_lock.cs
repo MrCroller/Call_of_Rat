@@ -20,6 +20,15 @@ public class S_lock : MonoBehaviour
     /// Рендер вставленных ключей
     /// </summary>
     private MeshRenderer key_active;
+    /// <summary>
+    /// Партиклы связи
+    /// </summary>
+    public GameObject fx_relation;
+    /// <summary>
+    /// Основной эффект связи
+    /// </summary>
+    public GameObject fx_relation_main;
+
 
     public AudioSource audio_door;
     private AudioSource _audio_key;
@@ -40,6 +49,7 @@ public class S_lock : MonoBehaviour
             {
                 key_active.enabled = true;
                 _plight.SetActive(true);
+                fx_relation.SetActive(false);
 
                 _audio_key.Play();
 
@@ -48,6 +58,7 @@ public class S_lock : MonoBehaviour
 
                 if (key_count == 5)
                 {
+                    fx_relation_main.SetActive(false);
                     audio_door.Play();
                     door.SetBool("Open", true);
                 }

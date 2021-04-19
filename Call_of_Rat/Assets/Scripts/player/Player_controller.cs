@@ -12,7 +12,7 @@ public class Player_controller : MonoBehaviour
         Stealth
     }
 
-    public SpeedState speedStatus;
+    public static SpeedState speedStatus;
 
     [SerializeField] private float _speed = 3f;
     private Vector3 _direction;
@@ -48,16 +48,19 @@ public class Player_controller : MonoBehaviour
     private void Start()
     {
         Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     private void Update()
     {
-        Move();
-        MouseMove();
+        if (!PauseMenu.gameIsPaused)
+        {
+            Move();
+            MouseMove();
 
-        Sprint();
-        Stealth();
+            Sprint();
+            Stealth();
+        }
     }
 
     private void FixedUpdate()
