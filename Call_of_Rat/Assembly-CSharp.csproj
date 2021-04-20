@@ -61,6 +61,7 @@
     <Compile Include="Assets\Scripts\dialogues\Storyteller.cs" />
     <Compile Include="Assets\Scripts\dialogues\CallOfRat_swamp.cs" />
     <Compile Include="Assets\Scripts\S_lock.cs" />
+    <Compile Include="Assets\UI\Scripts\OptionsPanel.cs" />
     <Compile Include="Assets\Scripts\triggers\Mirrh.cs" />
     <Compile Include="Assets\Scripts\dialogues\Rat_maze.cs" />
     <Compile Include="Assets\UI\Scripts\PauseMenu.cs" />

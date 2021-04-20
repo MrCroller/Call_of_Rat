@@ -27,7 +27,7 @@ public class Player_controller : MonoBehaviour
     /// <summary>
     /// Чувствительность мыши
     /// </summary>
-    public float sensivity = 200f;
+    public float sensivity = 2f;
     /// <summary>
     /// Ускорение бега
     /// </summary>

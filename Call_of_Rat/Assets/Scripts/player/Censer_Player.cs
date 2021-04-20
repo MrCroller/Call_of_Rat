@@ -123,7 +123,7 @@ public class Censer_Player : MonoBehaviour
     /// </summary>
     private void Fare()
     {
-        if (Input.GetMouseButtonDown(0) && flag_reload)
+        if (Input.GetMouseButtonDown(0) && flag_reload && !_holy_fire.activeSelf)
         {
             Debug.Log("holy_fire!");
             holyFire_audio.Play();
