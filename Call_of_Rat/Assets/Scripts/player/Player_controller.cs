@@ -7,8 +7,8 @@ public class Player_controller : MonoBehaviour
     /// </summary>
     public enum SpeedState
     {
-        Sprint,
         Normal,
+        Sprint,
         Stealth
     }
 
@@ -83,7 +83,7 @@ public class Player_controller : MonoBehaviour
     /// </summary>
     private void Sprint()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && speedStatus != SpeedState.Sprint)
         {
             _speed += sprint_value;
             speedStatus = SpeedState.Sprint;
@@ -101,7 +101,7 @@ public class Player_controller : MonoBehaviour
     /// </summary>
     private void Stealth()
     {
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        if (Input.GetKeyDown(KeyCode.LeftControl) && speedStatus != SpeedState.Stealth)
         {
             _speed -= stealth_value;
             speedStatus = SpeedState.Stealth;

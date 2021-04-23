@@ -9620,8 +9620,8 @@ GameObject:
   - component: {fileID: 6119526749526894752}
   - component: {fileID: 6119526749526894755}
   - component: {fileID: 6119526749526894754}
-  - component: {fileID: 6119526749526894753}
   - component: {fileID: 3927775558115122721}
+  - component: {fileID: -3791119970786885185}
   m_Layer: 0
   m_Name: Key
   m_TagString: Untagged
@@ -9637,8 +9637,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6119526749526894684}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.509, y: 1.22, z: 6.971}
-  m_LocalScale: {x: 0.29036, y: 0.29036, z: 0.29036}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 6119526749567931656}
   - {fileID: 6119526747710565596}
@@ -9708,19 +9708,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.49
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6119526749526894753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6119526749526894684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd96461b4086dda49a11f69f3e935a5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _player: {fileID: 0}
 --- !u!95 &3927775558115122721
 Animator:
   serializedVersion: 3
@@ -9734,12 +9721,27 @@ Animator:
   m_Controller: {fileID: 9100000, guid: be762ecca8f33834faf4394477e0a356, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-3791119970786885185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6119526749526894684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcb2ce426c7516a42ad73efba9bedfde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  take:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6119526749567931659
 GameObject:
   m_ObjectHideFlags: 0
@@ -9789,7 +9791,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1

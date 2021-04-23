@@ -41,6 +41,10 @@ public class Censer_Player : MonoBehaviour
     /// Звук активации кадила
     /// </summary>
     public AudioSource holyFire_audio;
+    /// <summary>
+    /// Звук взятия предмета
+    /// </summary>
+    public AudioSource take_audio;
 
     /// <summary>
     /// Событие для активации UI эффекта огня
@@ -197,6 +201,7 @@ public class Censer_Player : MonoBehaviour
     public void TakeMirrh()
     {
         mirrh_count++;
+        take_audio?.Play();
         _anim_pl.SetTrigger("TakeMirrh");
     }
 }

@@ -14,12 +14,34 @@ namespace Menu.UI
         /// </summary>
         public Player_controller player;
 
-        [SerializeField] private InputField field_vol;
+        /// <summary>
+        /// Цифровое отображение увствительности
+        /// </summary>
         [SerializeField] private InputField field_sens;
+        /// <summary>
+        /// Цифровое отображение общей громкости
+        /// </summary>
+        [SerializeField] private InputField field_vol;
+        /// <summary>
+        /// Цифровое отображение громкости эффектов
+        /// </summary>
+        [SerializeField] private InputField field_Eff_vol;
+        /// <summary>
+        /// Цифровое отображение громкости музыки
+        /// </summary>
+        [SerializeField] private InputField field_Music_vol;
         /// <summary>
         /// Миксер игровых звуков
         /// </summary>
         [SerializeField] private AudioMixerGroup mixer;
+
+        public void Start()
+        {
+            field_sens.text = player.sensivity.ToString();
+            field_vol.text = "1";
+            field_Eff_vol.text = "1";
+            field_Music_vol.text = "1";
+        }
 
         /// <summary>
         /// Изменение чувствительности
@@ -28,6 +50,7 @@ namespace Menu.UI
         public void ChangeSensetivity(float value)
         {
             player.sensivity = Mathf.Lerp(0.01f, 10f, value);
+            field_sens.text = (value * 10).ToString();
         }
 
         /// <summary>
@@ -37,6 +60,7 @@ namespace Menu.UI
         public void ChangeMasterVolume(float volume)
         {
             mixer.audioMixer.SetFloat("MasterVolume", Mathf.Lerp(-80, 0, volume));
+            field_vol.text = volume.ToString();
         }
 
         /// <summary>
@@ -46,6 +70,7 @@ namespace Menu.UI
         public void ChangeEffectVolume(float volume)
         {
             mixer.audioMixer.SetFloat("EffectsVolume", Mathf.Lerp(-80, 0, volume));
+            field_Eff_vol.text = volume.ToString();
         }
 
         /// <summary>
@@ -55,6 +80,7 @@ namespace Menu.UI
         public void ChangeMusicVolume(float volume)
         {
             mixer.audioMixer.SetFloat("MusicVolume", Mathf.Lerp(-80, 0, volume));
+            field_Music_vol.text = volume.ToString();
         }
 
         /// <summary>

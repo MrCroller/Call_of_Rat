@@ -2823,7 +2823,7 @@ MonoBehaviour:
   _trigger_nand: {fileID: 906566605}
   p_camera: {fileID: 4901365664912391756}
   startPosition: {fileID: 0}
-  key_count: 5
+  key_count: 0
 --- !u!114 &535077503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2836,7 +2836,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d01efe100612f934ca77e75894a7cf39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedStatus: 1
   _speed: 3
   p_camera: {fileID: 4901365664912391755}
   sensivity: 2
@@ -2863,6 +2862,7 @@ MonoBehaviour:
   _holy_fire: {fileID: 6462965287180169631}
   reload_audio: {fileID: 0}
   holyFire_audio: {fileID: 0}
+  take_audio: {fileID: 0}
   UIFire:
     m_PersistentCalls:
       m_Calls:
@@ -10076,6 +10076,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.0256
       objectReference: {fileID: 0}
+    - target: {fileID: 2988661464258581049, guid: 2989e02de5f3e554db068a3ac895fb20,
+        type: 3}
+      propertyPath: take.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4232919950232556389}
     - target: {fileID: 7886827156505935930, guid: 2989e02de5f3e554db068a3ac895fb20,
         type: 3}
       propertyPath: m_Name
@@ -10091,7 +10096,10 @@ PrefabInstance:
       propertyPath: take.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4232919950232556389}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2988661464258581049, guid: 2989e02de5f3e554db068a3ac895fb20, type: 3}
+    - {fileID: 3824445398071668639, guid: 2989e02de5f3e554db068a3ac895fb20, type: 3}
+    - {fileID: 1389251123494774374, guid: 2989e02de5f3e554db068a3ac895fb20, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2989e02de5f3e554db068a3ac895fb20, type: 3}
 --- !u!4 &3961376820685837307 stripped
 Transform:
