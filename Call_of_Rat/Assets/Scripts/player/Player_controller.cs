@@ -7,12 +7,12 @@ public class Player_controller : MonoBehaviour
     /// </summary>
     public enum SpeedState
     {
-        Sprint,
         Normal,
+        Sprint,
         Stealth
     }
 
-    public SpeedState speedStatus;
+    public static SpeedState speedStatus;
 
     [SerializeField] private float _speed = 3f;
     private Vector3 _direction;
@@ -27,7 +27,7 @@ public class Player_controller : MonoBehaviour
     /// <summary>
     /// Чувствительность мыши
     /// </summary>
-    public float sensivity = 200f;
+    public float sensivity = 2f;
     /// <summary>
     /// Ускорение бега
     /// </summary>
@@ -48,16 +48,19 @@ public class Player_controller : MonoBehaviour
     private void Start()
     {
         Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     private void Update()
     {
-        Move();
-        MouseMove();
+        if (!PauseMenu.gameIsPaused)
+        {
+            Move();
+            MouseMove();
 
-        Sprint();
-        Stealth();
+            Sprint();
+            Stealth();
+        }
     }
 
     private void FixedUpdate()
@@ -80,7 +83,7 @@ public class Player_controller : MonoBehaviour
     /// </summary>
     private void Sprint()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && speedStatus != SpeedState.Sprint)
         {
             _speed += sprint_value;
             speedStatus = SpeedState.Sprint;
@@ -98,7 +101,7 @@ public class Player_controller : MonoBehaviour
     /// </summary>
     private void Stealth()
     {
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        if (Input.GetKeyDown(KeyCode.LeftControl) && speedStatus != SpeedState.Stealth)
         {
             _speed -= stealth_value;
             speedStatus = SpeedState.Stealth;

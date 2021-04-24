@@ -33,6 +33,18 @@ public class Censer_Player : MonoBehaviour
     /// Физика оружия
     /// </summary>
     private Rigidbody _censer_rb;
+    /// <summary>
+    /// Звук перезарядки кадила
+    /// </summary>
+    public AudioSource reload_audio;
+    /// <summary>
+    /// Звук активации кадила
+    /// </summary>
+    public AudioSource holyFire_audio;
+    /// <summary>
+    /// Звук взятия предмета
+    /// </summary>
+    public AudioSource take_audio;
 
     /// <summary>
     /// Событие для активации UI эффекта огня
@@ -63,7 +75,7 @@ public class Censer_Player : MonoBehaviour
     /// <summary>
     /// Время действия кадила
     /// </summary>
-    public float time_holyfire = 10f;
+    public float time_holyfire = 60f;
     public float timer;
     /// <summary>
     /// Кол-во ладана
@@ -115,9 +127,10 @@ public class Censer_Player : MonoBehaviour
     /// </summary>
     private void Fare()
     {
-        if (Input.GetMouseButtonDown(0) && flag_reload)
+        if (Input.GetMouseButtonDown(0) && flag_reload && !_holy_fire.activeSelf)
         {
             Debug.Log("holy_fire!");
+            holyFire_audio.Play();
             _holy_fire.SetActive(true);
             UIFire?.Invoke();
         }
@@ -126,11 +139,12 @@ public class Censer_Player : MonoBehaviour
         {
             if(timer <= 0)
             {
-                _holy_fire.SetActive(false);
                 flag_reload = false;
+                _holy_fire.SetActive(false);
                 //Выключение света и эффектов у оружия
                 _pointlight.SetActive(false); 
                 _particle.SetActive(false);
+                holyFire_audio.Stop();
 
                 UIFire?.Invoke();
                 timer = time_holyfire;
@@ -151,6 +165,7 @@ public class Censer_Player : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
+                reload_audio.Play();
                 UITimerReload?.Invoke();
                 _anim_pl.SetTrigger("Reload");
                 _censer_rb.isKinematic = false;
@@ -178,5 +193,15 @@ public class Censer_Player : MonoBehaviour
     public void PhysicsOff()
     {
         _censer_rb.isKinematic = true;
+    }
+
+    /// <summary>
+    /// Взятие ладана
+    /// </summary>
+    public void TakeMirrh()
+    {
+        mirrh_count++;
+        take_audio?.Play();
+        _anim_pl.SetTrigger("TakeMirrh");
     }
 }

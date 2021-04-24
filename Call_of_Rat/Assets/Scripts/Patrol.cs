@@ -65,18 +65,18 @@ public class Patrol : MonoBehaviour
     /// <summary>
     /// Минимальная дистанция для прыжка на игрока
     /// </summary>
-    private readonly float _minDistance_player = 3.7f;
+    private readonly float _minDistance_player = 2.5f;
 
     private bool flag_firedeath = false;
 
-    private Rigidbody _rigidbody;
+    private AudioSource _audio_walk;
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
         _navMesh = GetComponent<NavMeshAgent>();
         _vision = GetComponent<CapsuleCollider>();
-        _rigidbody = GetComponent<Rigidbody>();
+        _audio_walk = GetComponent<AudioSource>();
 
         #region EventsC#
         // ошибка: value does not fall within the expected range
@@ -120,25 +120,29 @@ public class Patrol : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        VisionSet();
+    }
+
     /// <summary>
     /// Установка величины зрения
     /// </summary>
-    public void VisionSet(Player_controller.SpeedState speed_st)
+    public void VisionSet()
     {
-        // знать бы как обращаться ко всем владельцам этого скрипта сразу
-        if (speed_st == Player_controller.SpeedState.Normal)
+        if (Player_controller.speedStatus == Player_controller.SpeedState.Normal)
         {
             // нормальное зрение
             _vision.radius = 1.27f;
             _vision.height = 3.7f;
         }
-        else if (speed_st == Player_controller.SpeedState.Sprint)
+        else if (Player_controller.speedStatus == Player_controller.SpeedState.Sprint)
         {
             // увеличенное зрение
             _vision.radius = 2f;
             _vision.height = 6.23f;
         }
-        else if (speed_st == Player_controller.SpeedState.Stealth)
+        else if (Player_controller.speedStatus == Player_controller.SpeedState.Stealth)
         {
             // уменьшеное зрение
             _vision.radius = 1f;
@@ -158,7 +162,11 @@ public class Patrol : MonoBehaviour
 
             if (Vector3.Distance(transform.position, _walk_points[_randomSpot].position) < _minDistance_point)
             {
-                if (_animator.GetBool("walk")) _animator.SetBool("walk", false);
+                if (_animator.GetBool("walk"))
+                {
+                    _audio_walk.Pause();
+                    _animator.SetBool("walk", false);
+                }
                 yield return new WaitForSeconds(startWaitTime);
                 _randomSpot = Random.Range(0, _walk_points.Length);
             }
@@ -205,7 +213,11 @@ public class Patrol : MonoBehaviour
     /// <param name="target"></param>
     private void Walk(Transform walk_point)
     {
-        if(!_animator.GetBool("walk")) _animator.SetBool("walk", true);
+        if (!_animator.GetBool("walk"))
+        {
+            _audio_walk.Play();
+            _animator.SetBool("walk", true);
+        } 
         _navMesh.SetDestination(walk_point.position);
     }
 
